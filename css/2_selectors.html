@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectors in html</title>
+    <style>
+        /* universal selector */
+        * {
+            margin: 0px;
+            padding: 0px;
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+
+        /* type selector */
+        h1 {
+            font-size: 1.8rem
+        }
+
+        header {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+
+        }
+
+        /* class selector style */
+        .india {
+            background-color: aliceblue;
+            color: blue;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .australia {
+            background-color: yellow;
+            color: green;
+        }
+
+        .south-africa {
+            background-color: green;
+            color: yellow;
+        }
+
+        .team-heading 
+        {
+            font-weight: bold;
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+        .highlight 
+        {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Selectors in html</h1>
+    <section>
+        <article class="india">
+            <header class="team-heading">
+                India men’s cricket team (ODI) playing XI
+            </header>
+            <ol>
+                <li class="highlight">Rohit Sharma (C) </li>
+                <li>Shubman Gill </li>
+                <li>Virat Kohli </li>
+                <li>Shreyas Iyer </li>
+                <li>KL Rahul (WK) </li>
+                <li>Hardik Pandya </li>
+                <li>Ravindra Jadeja </li>
+                <li>Kuldeep Yadav </li>
+                <li>Jasprit Bumrah </li>
+                <li>Mohammed Siraj </li>
+                <li>Mohammed Shami </li>
+            </ol>
+            <footer>
+                Created By : Ankit Patel
+            </footer>
+        </article>
+        <article class="australia">
+            <header class="team-heading">
+                Australia men's cricket team (ODI) playing XI
+            </header>
+            <ol>
+                <li>Travis Head</li>
+                <li>David Warner</li>
+                <li>Steve Smith</li>
+                <li>Marnus Labuschagne</li>
+                <li>Josh Inglis (WK)</li>
+                <li>Glenn Maxwell</li>
+                <li>Marcus Stoinis</li>
+                <li class="highlight">Pat Cummins (C)</li>
+                <li>Mitchell Starc</li>
+                <li>Adam Zampa</li>
+                <li>Josh Hazlewood</li>
+            </ol>
+            <footer>
+                Created By : Ankit Patel
+            </footer>
+        </article>
+        <article class="south-africa">
+            <header class="team-heading">
+                South Africa men's cricket team (ODI) playing XI
+            </header>
+            <ol>
+                <li>Quinton de Kock (WK)</li>
+                <li class="highlight">Temba Bavuma (C)</li>
+                <li>Rassie van der Dussen</li>
+                <li>Aiden Markram</li>
+                <li>Heinrich Klaasen</li>
+                <li>David Miller</li>
+                <li>Marco Jansen</li>
+                <li>Keshav Maharaj</li>
+                <li>Kagiso Rabada</li>
+                <li>Anrich Nortje</li>
+                <li>Lungi Ngidi</li>
+            </ol>
+            <footer>
+                Created By : Ankit Patel
+            </footer>
+        </article>
+    </section>
+</body>
+
+</html>
