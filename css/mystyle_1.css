@@ -1,0 +1,82 @@
+/* this file must contain only CSS code */
+/* universal selector */
+* {
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 1px;
+    color: #980404
+}
+
+/* type selector */
+body {
+    background-color: #FFFDE1;
+}
+
+/* ID selector style */
+#news {
+    border: 2px solid #980404;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+/* select all article tag which are direct child of news */
+#news>article {
+    box-sizing: border-box;
+    width: calc(25% - 10px);
+    border: 1px solid #980404;
+
+    background-color: #FBE580;
+    font-size: 18px;
+    height: 600px;
+    overflow: scroll;
+}
+
+/* select all paragraph of article tag which are direct child of news */
+
+#news>article>p {
+    text-align: justify;
+    text-indent: 50px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    line-height: 125%;
+    padding: 10px;
+}
+
+#news>article>header,
+#news>article>footer {
+    background-color: #980404;
+    color: #FBE580;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+body>header,
+body>footer {
+    background-color: #980404;
+}
+
+body>header {
+    /* header will always appear at the top of screen */
+    position: sticky;
+    top: 0px;
+    left: 0px;
+}
+body>footer {
+    position: sticky;
+    bottom: 0px;
+    left: 0px;
+}
+body>header>h1,
+body>footer>p {
+    color: #FBE580;
+}
+
+body>footer>p {
+    text-align: center;
+    font-size: large;
+}
