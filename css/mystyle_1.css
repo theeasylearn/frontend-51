@@ -10,6 +10,10 @@
 /* type selector */
 body {
     background-color: #FFFDE1;
+    background-image: url('images/world.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* ID selector style */
@@ -29,7 +33,7 @@ body {
     width: calc(25% - 10px);
     border: 1px solid #980404;
 
-    background-color: #FBE580;
+    background-color: #FBE58080; 
     font-size: 18px;
     height: 600px;
     overflow: scroll;
@@ -55,6 +59,19 @@ body {
     text-transform: uppercase;
 }
 
+#news>article>header
+{
+    position: sticky;
+    top:0px;
+    left:0px;
+
+}
+#news>article>footer
+{
+    position: sticky;
+    bottom: 0px;
+    left: 0px;
+}
 body>header,
 body>footer {
     background-color: #980404;
