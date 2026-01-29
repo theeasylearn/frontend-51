@@ -1,0 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 0px;
+    font-size: 18px;
+}
+
+body {
+    /*
+        Primary: Royal Purple (#6C63FF)
+        Secondary: Sky Blue (#48CAE4)
+        Accent: Lemon Yellow (#FDFFB6)
+        Neutral: Warm Off-White (#FFFBF2)
+    */
+    background-color: #FFFBF2;
+}
+
+#site_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#site_header>div {
+    display: flex;
+    width: 300px;
+    align-items: center;
+}
+
+#site_header>ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+/* apply style to the last child of ul */
+#site_header>ul>li:last-child {
+    margin-right: 20px;
+}
+
+#content {
+    display: flex;
+    gap: 20px;
+}
+
+#content>article {
+   
+}
