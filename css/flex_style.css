@@ -1,11 +1,14 @@
-* {
+* 
+{
     margin: 0px;
     padding: 0px;
     letter-spacing: 0px;
     font-size: 18px;
+    font-family: 'Roboto',sans-serif;
 }
 
-body {
+body 
+{
     /*
         Primary: Royal Purple (#6C63FF)
         Secondary: Sky Blue (#48CAE4)
@@ -15,15 +18,26 @@ body {
     background-color: #FFFBF2;
 }
 
+h1, h2, h3, h4, h5, h6, header 
+{
+    font-family: 'Montserrat',sans-serif;
+}
+
 #site_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #FDFFB6;
+}
+
+#site_header>div>h2 {
+    font-size: 1.8rem;
+    margin-left: 20px;
 }
 
 #site_header>div {
     display: flex;
-    width: 300px;
+    width: 600px;
     align-items: center;
 }
 
@@ -31,6 +45,17 @@ body {
     display: flex;
     gap: 20px;
     list-style-type: none;
+}
+
+.menu-link {
+    background-color: #6C63FF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color:white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 3px 3px 3px gray;
 }
 
 /* apply style to the last child of ul */
@@ -43,6 +68,26 @@ body {
     gap: 20px;
 }
 
-#content>article {
-   
+#site_footer {
+    display: flex;
+    width: 100%;
+}
+
+#site_footer>div:first-child {
+    min-width: 25%;
+}
+
+#site_footer>div:nth-child(2) {
+    min-width: 60%;
+}
+
+#site_footer>div:nth-child(3) {
+    min-width: 15%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#site_footer>div:nth-child(3)>img {
+    width: 32px;
+    height: 32px;
 }
