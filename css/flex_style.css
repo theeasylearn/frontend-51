@@ -27,20 +27,12 @@ h1, h2, h3, h4, h5, h6, header
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FDFFB6;
+    background-color: #1A2843;
 }
-
-#site_header>div>h2 {
-    font-size: 1.8rem;
-    margin-left: 20px;
+#site_header>img 
+{
+    height: 100px;
 }
-
-#site_header>div {
-    display: flex;
-    width: 600px;
-    align-items: center;
-}
-
 #site_header>ul {
     display: flex;
     gap: 20px;
