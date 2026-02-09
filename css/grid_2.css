@@ -4,13 +4,58 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
 body 
 {
     background-color: aliceblue;
 }
+
 div 
 {
-    height:100px;
     border: 1px solid black;
     font-size: 48px;
+}
+#site 
+{
+    display: grid;
+    height: 100vh; /* as big as size of the screen */
+    /* how many rows and what will be size of the each row */
+    grid-template-rows: 1fr 4fr 2fr;
+    grid-template-areas: "one one one one"
+                "two three three three"
+                "four five six seven";
+}
+/* create id selector style for each and every child of #site and
+give unique area name to it using grid-area property */
+#one 
+{
+    grid-area: one;
+}
+#two
+{
+    grid-area: two;
+}
+
+#three
+{
+    grid-area: three;
+}
+#four
+{
+    grid-area: four;
+}
+
+#five
+{
+    grid-area: five;
+}
+
+#six 
+{
+    grid-area: six;
+}
+
+#seven
+{
+    grid-area: seven;
 }
