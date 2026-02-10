@@ -1,0 +1,246 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 0px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    /*
+        Primary: Royal Purple (#6C63FF)
+        Secondary: Sky Blue (#48CAE4)
+        Accent: Lemon Yellow (#FDFFB6)
+        Neutral: Warm Off-White (#FFFBF2)
+    */
+    background-color: #FFFBF2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#site_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1A2843;
+    position: sticky;
+    left: 0px;
+    top: 0px;
+}
+
+#site_header>img {
+    height: 100px;
+}
+
+#site_header>ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+#site_header>ul>li>a:link {
+    background-color: #6C63FF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 3px 3px 3px gray;
+}
+
+#site_header>ul>li>a:visited {
+    color: red;
+}
+
+#site_header>ul>li>a:hover {
+    color: yellow;
+    background: #6C63FF;
+    background: linear-gradient(177deg, rgba(108, 99, 255, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+#site_header>ul>li>a:active {
+    color: greenyellow;
+    background: #6C63FF;
+    background: radial-gradient(circle, rgba(108, 99, 255, 1) 0%, rgba(255, 255, 255, 1) 89%);
+}
+
+/* apply style to the last child of ul */
+#site_header>ul>li:last-child {
+    margin-right: 20px;
+}
+
+#content {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    /* or
+       margin:20px
+    */
+}
+
+#content>article {
+    border: 1px solid black;
+    /* padding: 10px; */
+}
+
+#content>article>p {
+    text-align: justify;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#content>article>ul {
+    list-style-position: inside;
+    list-style-image: url('images/hand.png');
+}
+
+#content>article>ul>li {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+#content>article>header {
+    background-color: #6C63FF;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#content>article>img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#site_footer {
+    display: flex;
+    width: 100%;
+    background-color: #070c1440;
+}
+
+#site_footer>div:first-child {
+    min-width: 25%;
+}
+
+#site_footer>div:nth-child(2) {
+    min-width: 60%;
+}
+
+#site_footer>div:nth-child(3) {
+    min-width: 15%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#site_footer>div:nth-child(3)>img {
+    width: 32px;
+    height: 32px;
+}
+
+/* media query block */
+/*  ##Device = Most of the Smartphones Mobiles (Portrait) ##Screen = B/w 320px to 479px */
+@media (min-width: 320px) and (max-width: 480px) {
+
+    /* code in this block will be applied only if device width>320 and <480 */
+    #content>article {
+        width: 100%;
+    }
+
+    #content>article>p,
+    #content>article>ul>li {
+        font-size: 24px;
+    }
+
+    #content>article>header {
+        font-size: 20px;
+    }
+}
+
+/* ##Device = Low Resolution Tablets,  ##Screen = B/w 481px to 767px */
+@media (min-width: 481px) and (max-width: 767px) {
+
+    /* code in this block will be applied only if device width>481 and <767 */
+    #content>article {
+        width: calc(50% - 20px);
+    }
+
+    #content>article>p,
+    #content>article>ul>li {
+        font-size: 22px;
+    }
+
+    #content>article>header {
+        font-size: 18px;
+    }
+}
+
+/* ##Device = Tablets, Ipads (portrait) ##Screen = B/w 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* code in this block will be applied only if device width>768 and <1024 */
+    #content>article {
+        width: calc(33.33% - 20px);
+    }
+
+    #content>article>p,
+    #content>article>ul>li {
+        font-size: 20px;
+    }
+
+    #content>article>header {
+        font-size: 18px;
+    }
+}
+
+/* ##Device = Laptops, Desktops ##Screen = B/w 1025px to 1280px*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    /* code in this block will be applied only if device width>1025 and <1280 */
+    #content>article {
+        width: calc(25% - 20px);
+    }
+
+    #content>article>p,
+    #content>article>ul>li {
+        font-size: 20px;
+    }
+
+    #content>article>header {
+        font-size: 18px;
+    }
+}
+
+/* ##Device = Desktops ##Screen = 1281px to higher resolution desktop */
+@media (min-width: 1281px) {
+
+    /* code in this block will be applied only if device width>1281 */
+    /* code in this block will be applied only if device width>1025 and <1280 */
+    #content>article {
+        width: calc(20% - 20px);
+    }
+
+    #content>article>p,
+    #content>article>ul>li {
+        font-size: 20px;
+    }
+
+    #content>article>header {
+        font-size: 18px;
+    }
+}
