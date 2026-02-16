@@ -1,0 +1,8 @@
+1) modify example 6_grid.html and make it responsive using media query block.
+    display 1 image per line in case of mobile 
+    display 2 image per line in case of tablet 
+    display 3 image per line in case of Ipads
+    display 4 image per line in case of laptop screen  
+
+2) modify example 7_grid_2.html and make it responsive using media query. each and every section must have meaningful information & image.
+

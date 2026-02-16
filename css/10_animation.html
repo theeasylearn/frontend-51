@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* internal style */
+        article {
+            background-color: antiquewhite;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        article>div {
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            background-color: brown;
+            color: white;
+            font-size: 64px;
+            text-align: center;
+        }
+
+
+        #one:hover {
+            animation: round 1s linear 500ms 1 normal forwards;
+        }
+
+        #two:hover {
+            height: 150px;
+            width: 150px;
+            animation: golden-shadow 2s linear infinite;
+        }
+
+        @keyframes round {
+            25% {
+                border-radius: 25%;
+                background-color: #926c68;
+                font-size: 52px;
+            }
+
+            50% {
+                border-radius: 50%;
+                background-color: #b4896c;
+                font-size: 58px;
+            }
+
+            75% {
+                border-radius: 75%;
+                background-color: #d6a16b;
+                font-size: 64px;
+            }
+
+            100% {
+                border-radius: 100%;
+                background-color: #eab768;
+                font-size: 70px;
+            }
+
+        }
+
+        @keyframes golden-shadow {
+            0% {
+                box-shadow: 0 0 0 0 #FFD700;
+            }
+
+            5% {
+                box-shadow: 0 0 2px 2px #FFD700;
+            }
+
+            10% {
+                box-shadow: 0 0 4px 4px #FFD700;
+            }
+
+            15% {
+                box-shadow: 0 0 6px 6px #FFD700;
+            }
+
+            20% {
+                box-shadow: 0 0 8px 8px #FFD700;
+            }
+
+            25% {
+                box-shadow: 0 0 10px 10px #FFD700;
+            }
+
+            30% {
+                box-shadow: 0 0 12px 12px #FFD700;
+            }
+
+            35% {
+                box-shadow: 0 0 14px 14px #FFD700;
+            }
+
+            40% {
+                box-shadow: 0 0 16px 16px #FFD700;
+            }
+
+            45% {
+                box-shadow: 0 0 18px 18px #FFD700;
+            }
+
+            50% {
+                box-shadow: 0 0 20px 20px #FFD700;
+            }
+
+            55% {
+                box-shadow: 0 0 22px 22px #FFD700;
+            }
+
+            60% {
+                box-shadow: 0 0 24px 24px #FFD700;
+            }
+
+            65% {
+                box-shadow: 0 0 26px 26px #FFD700;
+            }
+
+            70% {
+                box-shadow: 0 0 28px 28px #FFD700;
+            }
+
+            75% {
+                box-shadow: 0 0 30px 30px #FFD700;
+            }
+
+            80% {
+                box-shadow: 0 0 32px 32px #FFD700;
+            }
+
+            85% {
+                box-shadow: 0 0 34px 34px #FFD700;
+            }
+
+            90% {
+                box-shadow: 0 0 36px 36px #FFD700;
+            }
+
+            95% {
+                box-shadow: 0 0 38px 38px #FFD700;
+            }
+
+            100% {
+                box-shadow: 0 0 40px 40px #FFD700;
+            }
+        }
+
+        #three>img {
+            height: 100%;
+            width: 100%;
+            filter: grayscale(100%);
+            filter: blur(9px);
+        }
+
+        #three>img:hover {
+            animation: change-color 1500ms linear normal forwards;
+        }
+
+        @keyframes change-color {
+            33% {
+                filter: grayscale(67%);
+                filter: blur(6px);
+            }
+
+            66% {
+                filter: grayscale(33%);
+                filter: blur(3px);
+            }
+
+            100% {
+                filter: grayscale(0%);
+                filter: blur(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Animation Related Properties</h1>
+    <article>
+        <div id="one">1</div>
+        <div id="two">2</div>
+        <div id="three">
+            <img src="images/face.jpeg" alt="">
+        </div>
+        <div id="four">4</div>
+    </article>
+</body>
+
+</html>

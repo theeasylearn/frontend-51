@@ -159,7 +159,10 @@ header {
     width: 80px;
     display: none;
 }
-
+#responsive-menu
+{
+    display: none;
+}
 /* media query block */
 /*  ##Device = Most of the Smartphones Mobiles (Portrait) ##Screen = B/w 320px to 479px */
 @media (min-width: 320px) and (max-width: 480px) {
@@ -190,8 +193,9 @@ header {
         min-width: 100%;
     }
 
-    #menu {
-        display: none;
+    #menu 
+    {
+        display: none !important;
     }
     #menu-button
     {

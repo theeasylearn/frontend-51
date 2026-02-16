@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box 
+        {
+            display: flex;
+            background-color: aliceblue;
+            justify-content: space-around;
+            padding:20px;
+        }
+        #box>div 
+        {
+            height:100px;
+            width:100px;
+            background-color: blueviolet;
+            font-size: 84px;
+            text-align: center;
+            color:white;
+            transition-duration: 1500ms;
+            transition-delay: 600ms;
+        }
+
+        #one:hover
+        {
+            transform: rotate(90deg);
+        }
+        #two:hover
+        {
+            transform: scale(1.5,1.5)
+        }
+        #three:hover
+        {
+            transform: skew(30deg,30deg);
+        }
+
+        #four:hover 
+        {
+            transform: translate(0px,20px);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Transform or transition related properties</h1>
+    <article id="box">
+        <div id="one">1</div>
+        <div id="two">2</div>
+        <div id="three">3</div>
+        <div id="four">4</div>
+        <div id="five">5</div>
+    </article>
+</body>
+
+</html>
