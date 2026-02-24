@@ -1,0 +1,2 @@
+1) create example of auto playing carousel 
+2) create IPL T20 2026 match schedule using bootstrap table 
