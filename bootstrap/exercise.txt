@@ -32,3 +32,9 @@ display total 6 products.
             1 Destination on extra small screen
 
     display 24 such Destinations.
+
+Form 
+--------------------------------------------------
+1) create vertical form for change password screen 
+2) create vertical form for forgot password screen
+ 
