@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card mt-5 shadow">
                     <div class="card-header text-bg-primary">
                         <h3>Grid form example</h3>
                     </div>
@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <form action="">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-12 col-sm-6  col-md-6 col-lg-3 mb-3">
                                     <select class="form-select" name="relation" id="relation">
                                         <option value="">Select relation</option>
                                         <option value="1">Self</option>
@@ -34,15 +34,15 @@
                                         <option value="6">Cousin</option>
                                     </select>
                                 </div>
-                                <div class="col">
+                                <div class="col-12 col-sm-6  col-md-6 col-lg-3 mb-3">
                                     <input name="firstname" id="firstname" class="form-control"
                                         placeholder="your first name" />
                                 </div>
-                                <div class="col">
+                                <div class="col-12 col-sm-6  col-md-6 col-lg-3 mb-3">
                                     <input name="lastname" id="lastname" class="form-control"
                                         placeholder="your last name" />
                                 </div>
-                                <div class="col">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-3  mb-3">
                                     <label for="" class="me-4">Gender</label>
                                     <div class="form-check-inline">
                                         <input type="radio" name="gender" id="male" value="1" />
@@ -55,20 +55,20 @@
 
                                 </div>
                                 <div class="row mt-3">
-                                    <div class="col">
+                                    <div class="col-12 col-md mb-3">
                                         <input type="date" id="dob" name="dob" class="form-control" />
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md mb-3">
                                         <input type="email" id="email" name="email" class="form-control"
-                                            placeholder="your mobile no" />
+                                            placeholder="your email address" />
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md mb-3">
                                         <input type="number" id="mobile" name="mobile" class="form-control"
                                             placeholder="10 digit mobile">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
+                                <div class="row mt-3">
+                                    <div class="col-12 col-md mb-3">
                                         <select name="religion" id="religion" class="form-control">
                                             <option value="">Select religion</option>
                                             <option value="hindu">Hindu</option>
@@ -80,7 +80,7 @@
                                             <option value="zoroastrianism">Zoroastrianism (Parsi)</option>
                                         </select>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md mb-3">
                                         <select name="community" id="community" class="form-select">
                                             <option value="">Select Community</option>
                                             <option value="baidya">Baidya</option>
@@ -240,12 +240,13 @@
                                         </select>
                                     </div>
                                 </div>
-                                <!-- 
-                      create registration page just like shaddi.com 
-         1st line: Select Relation, First name, Last name, Select Gender
-         2nd line: Birth date, Email, Mobile
-         3rd line: Select Religion, Select Community, Select sub communities9.9s 
--->
+                                <div class="row mt-3">
+                                    <div class="col text-end">
+                                        <button type="submit" class="btn btn-danger btn-lg">Register</button>
+                                        <button type="reset" class="btn btn-dark btn-lg">Clear all</button>
+                                    </div>
+                                </div>
+
                             </div>
                         </form>
                     </div>
