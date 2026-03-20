@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Nullish coalescing operator</h1>
+    <script>
+        var date = null;
+        console.log(date);
+        // if (date === null) {
+        //     date = new Date();
+        // }
+        // document.write("today is " + date.toLocaleDateString());
+
+        document.write(date??"today is " + new Date().toLocaleDateString())
+    </script>
+</body>
+
+</html>
