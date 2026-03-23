@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>how to display another web page (without using link submit button)</h1>
     <script>
-        //create user defined function
-        function OpenGoogle()
-        {
+        //create user defined function 
+        function openGoogle() {
             window.location = "http://www.google.com";
         }
-        function OpenApple()
-        {
-            window.location = "http://www.apple.com"
+        function openAmazon() {
+            window.location = "http://www.amazon.com";
         }
-        function OpenMicrosoft()
-        {
-            window.location = "http://www.microsoft.com"
+        function openApple() {
+            window.location = "http://www.apple.com";
         }
     </script>
     <form>
-        <button type="button" onclick="OpenGoogle();" >Open Google</button>
-        <button type="button" onclick="OpenApple();" >Open Apple</button>
-        <button type="button" onclick="OpenMicrosoft();" >Open Microsoft</button>
+        <input type="button" value="open google" onclick="openGoogle();">
+        <input type="button" value="open amazon" onclick="openAmazon();">
+        <input type="button" value="open apple" onclick="openApple();">
     </form>
 </body>
+
 </html>

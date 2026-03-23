@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>prompt & document.write method</h1>
-    <hr/>
-
+    <h1>prompt in javascript</h1>
     <script>
-        var message = "Enter number"
-        var defaultValue = 1;
-        var num1 = prompt(message,defaultValue);
+        //create variables 
+        var message = "enter your name";
+        var defaultValue = "ankit";
+        var response = prompt(message, defaultValue);
+        alert("Hello Mr/miss/mrs " + response);
 
-        var num2 = prompt("Enter another number",1);
-        alert("you have entered two number 1st num = " + num1 + " 2nd num = " + num2);
-        //input we accept from user either in html or in javascript is always string
-        //before we do mathematical operation, we should convert it into numbers 
-        //conversion
+        var num1 = prompt("enter first number",1);
+        var num2 = prompt("enter second number",2);
+
+        //before we do any mathematical operations we have to convert numbers into integer 
         num1 = parseInt(num1);
         num2 = parseInt(num2);
-        //do addition
-        var addition = num1 + num2;
-        alert("addition " + addition);
-        //add new output at the end of page
-        document.write("subtraction = ",num1-num2);
-        document.write("<br/>multiplication = ",num1*num2);
-        document.write("<br/> division = ",num1/num2);
         
+        var addition = num1 + num2;
+        document.write("addition =",addition);
     </script>
 </body>
+
 </html>
