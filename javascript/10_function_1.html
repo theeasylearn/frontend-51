@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" align="center" width="90%" cellpadding="10">
+        <tr>
+            <td>
+                <form action="" onsubmit="return generateTable();">
+                    <table border="1" cellpadding="5" width="100%">
+                        <tr>
+                            <td>
+                                <input type="number" id="row" placeholder="enter rows" required />
+                            </td>
+                            <td>
+                                <input type="number" id="column" placeholder="enter column" required />
+                            </td>
+                            <td>
+                                <input type="text" id="message" placeholder="enter message" required />
+                            </td>
+                            <td>
+                                <select id="loop" required>
+                                    <option value="">Select loop</option>
+                                    <option value="1">while loop</option>
+                                    <option value="2">for loop</option>
+                                    <option value="3">do while loop</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="submit" value="generate table" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td id="output">
+
+            </td>
+        </tr>
+    </table>
+    <script>
+        //create user defined function 
+        function generateTable() {
+            // alert("hi");
+            //declare variables to store input 
+            let row = document.getElementById('row').value;
+            let column = document.getElementById('column').value;
+            let message = document.getElementById('message').value;
+            let loop = document.getElementById('loop').value;
+            console.log(row, column, message, loop);
+            if (loop == '1') {
+                let c = 0;
+                let td = ``;
+                while (c < column) {
+                    c++;
+                    td += `<td>${message}</td>`;
+                }
+                let tr = ``;
+                let r = 0;
+                while (r < row) {
+                    r++;
+                    tr += `<tr>${td}</tr>`;
+                }
+                temp = `<table border='1' width='90%' cellpadding='10'>${tr}</table>`;
+                document.getElementById('output').innerHTML = temp;
+
+            }
+            return false; //required 
+        }
+    </script>
+</body>
+
+</html>
