@@ -46,14 +46,16 @@
         </tr>
     </table>
     <script>
+        //create global variable 
+        let row, column, message, loop;
         //create user defined function 
         function generateTable() {
             // alert("hi");
-            //declare variables to store input 
-            let row = document.getElementById('row').value;
-            let column = document.getElementById('column').value;
-            let message = document.getElementById('message').value;
-            let loop = document.getElementById('loop').value;
+            //use global variables to store input 
+            row = document.getElementById('row').value;
+            column = document.getElementById('column').value;
+            message = document.getElementById('message').value;
+            loop = document.getElementById('loop').value;
             console.log(row, column, message, loop);
             if (loop == '1') {
                 let c = 0;

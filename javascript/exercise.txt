@@ -3,3 +3,7 @@ note : use submit button to handle event
 
 2) create web page that calculate & display BMI level of person from height and weight. height should be given in foot & inches. weight should be in kg. 
 note : use submit button to handle event. 
+
+
+3) add function val that can set or get value of given input tag 
+4) use common.js file in 7, 8, 9, 10 example 

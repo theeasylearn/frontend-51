@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>default argument function </h1>
+    <button type="button" onclick="clearAll();">clear all</button>
+    <ul>
+        <li id="one"></li>
+        <li id="two"></li>
+        <li id="three"></li>
+    </ul>
+    <!-- linking external javascript -->
+    <script src="common.js"></script>
+
+    <script>
+        let clearAll = function () {
+            html('one');
+            html('two');
+            html('three');
+        }
+        //create default argument function 
+        //return seconds of given hours, minutes, seconds
+        let getSeconds = function (hours, minutes = 0, seconds = 0) {
+            console.log(`hours = ${hours} minutes = ${minutes} seconds = ${seconds}`);
+            //create local variable
+            let totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+            return totalSeconds;
+        }
+        html('one', getSeconds(10, 9, 8));
+        html('two', getSeconds(10, 9));
+        html('three', getSeconds(10));  
+    </script>
+</body>
+
+</html>
