@@ -22,7 +22,8 @@
                 <td>Email Address</td>
                 <td>
                     <input type="email" id="email" placeholder="Email address" 
-                    required oninput="updateCount(this.id)" onfocus="changeClass(this.id)" />
+                    required oninput="updateCount(this.id)" onfocus="changeClass(this.id)"
+                    onblur="removeClass(this.id)" />
                     <span id="email_count"></span>
                 </td>
                 <td width="30%"></td>
@@ -31,7 +32,8 @@
                 <td>Mobile </td>
                 <td>
                     <input type="number" id="mobile" placeholder="mobile no" 
-                    oninput="updateCount(this.id)" required onfocus="changeClass(this.id)" />
+                    oninput="updateCount(this.id)" required onfocus="changeClass(this.id)"
+                    onblur="removeClass(this.id)" />
                     <span id="mobile_count"></span>
                 </td>
                 <td></td>
@@ -40,7 +42,8 @@
                 <td>city</td>
                 <td>
                     <input type="text" id="city" placeholder="City" 
-                    oninput="updateCount(this.id)" required onfocus="changeClass(this.id)" />
+                    oninput="updateCount(this.id)" required onfocus="changeClass(this.id)"
+                    onblur="removeClass(this.id)" />
                     <span id="city_count"></span>
                 </td>
                 <td></td>
@@ -62,6 +65,11 @@
         changeClass = (tagID) => {
             //console.log(tagID);
             document.getElementById(tagID).className = 'activeInput';
+        }
+
+        removeClass = (tagID) => {
+            // alert(tagID);
+            document.getElementById(tagID).className = "";
         }
     </script>
 </body>
