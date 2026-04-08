@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            /* horizontal alignment */
+            align-items: center;
+            /* vertical alignment */
+        }
+
+        #one {
+            height: 400px;
+            width: 400px;
+            background-color: aliceblue;
+        }
+
+        #two {
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+        }
+
+        #three {
+            height: 100px;
+            width: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="one">
+        <div class="box" id="two">
+            <div class="box" id="three"></div>
+        </div>
+    </div>
+
+    <script>
+        //create array/List that has all div
+        var boxes = document.getElementsByClassName("box");
+        console.log(boxes);
+        for (var index = 0; index < boxes.length; index++) {
+            //event handling
+            boxes[index].addEventListener('click',function(){
+                alert(this.id);
+            },true);
+        }
+    </script>
+</body>
+
+</html>
