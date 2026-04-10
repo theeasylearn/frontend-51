@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Creating Object using 1st technique</h1>
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>Addition</td>
+            <td id="add"></td>
+        </tr>
+        <tr>
+            <td>Subtraction</td>
+            <td id="sub"></td>
+        </tr>
+        <tr>
+            <td>Multiplication</td>
+            <td id="mul"></td>
+        </tr>
+        <tr>
+            <td>Division</td>
+            <td id="div"></td>
+        </tr>
+    </table>
+    <script>
+        //create object 
+        let MyMath = new Object({
+            //create property variable 
+            num1: 0,
+            num2: 0,
+            getInput: function () {
+                this.num1 = parseInt(prompt("Enter 1st number", 1));
+                this.num2 = parseInt(prompt("Enter 2nd number", 2));
+            },
+            addition: function () {
+                let result = this.num1 + this.num2; //here result is local variable
+                console.log(result);
+                document.getElementById('add').innerHTML = result;
+            }
+            // develop remaining methods 
+        });
+
+        //create object variable 
+        let m1 = MyMath;
+        m1.getInput();
+        m1.addition();
+
+        
+    </script>
+</body>
+
+</html>
