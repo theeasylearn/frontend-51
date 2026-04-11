@@ -22,10 +22,10 @@
                         <input type="text" id="name" required>
                     </td>
                     <td>
-                        <input type="number" id="price" required>
+                        <input type="number" id="price" required oninput="updateTotal()">
                     </td>
                     <td>
-                        <input type="number" id="quantity" required>
+                        <input type="number" id="quantity" required oninput="updateTotal()">
                     </td>
                     <td>
                         <input type="number" id="total" value="100" readonly>
@@ -43,6 +43,18 @@
 
     </form>
     <script>
+        function updateTotal() {
+            let price = document.getElementById('price').value;
+            let quantity = document.getElementById('quantity').value;
+            console.log("price", price);
+            console.log("quantity", quantity);
+            if (price !== '' && quantity !== '') {
+                price = parseInt(price);
+                quantity = parseInt(quantity);
+                let temp = price * quantity;
+                document.getElementById('total').value = temp;
+            }
+        }
         function Product(name, price, quantity, total) {
             //property variable
             this.name = name,
@@ -56,11 +68,17 @@
                         <td>${this.price}</td>
                         <td>${this.quantity}</td>
                         <td>${this.total}</td>
-                        <td><button type='button'>Delete Item</button></td>
+                        <td><button type='button' 
+                            onclick='deleteProduct(this);'>Delete Item</button></td>
                         </tr>`;
                 }
         }
 
+        function deleteProduct(tagID)
+        {
+            // alert("hi");
+            tagID.parentNode.parentNode.remove();   
+        }
         function AddProduct() {
             //create object
             let name = document.getElementById('name').value;
@@ -70,6 +88,12 @@
 
             let p1 = new Product(name, price, quantity, total);
             p1.add();
+            //empty textboxes
+            document.getElementById('name').value = "";
+            document.getElementById('price').value = "";
+            document.getElementById('quantity').value = "";
+            document.getElementById('total').value = "";
+
             return false;
         }
     </script>

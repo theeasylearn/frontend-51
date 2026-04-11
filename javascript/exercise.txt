@@ -7,3 +7,6 @@ note : use submit button to handle event.
 
 3) add function val that can set or get value of given input tag 
 4) use common.js file in 7, 8, 9, 10 example 
+
+5) create a web page to add student name and 3 subject marks and total and average. user can add as many student data as he wants. display in all student in table. also provide option to delete student 
+
