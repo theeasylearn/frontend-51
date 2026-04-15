@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ES6 way to create class & Object</h1>
+    <hr />
+
+    <script>
+        //create class 
+        class Product {
+            constructor(name, price, stock) {
+                this.name = name;
+                this.price = price;
+                this.stock = stock
+            }
+            display()
+            {
+                console.log(this.name + " " + this.price + " " + this.stock);
+            }
+            
+        }
+        //create object
+        var p1 = new Product("IPhone",125000);
+        p1.display();
+    </script>
+</body>
+
+</html>
