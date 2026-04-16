@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>multi level inheritance</h1>
+    <hr />
+    <script>
+        // parent class
+        class Person {
+            constructor(name, age, gender) {
+                this.name = name;
+                this.age = age;
+                this.gender = gender
+                console.log('Person class constructor called.')
+            }
+            walk() {
+                //local variable 
+                let prefix = null;
+                if (this.gender === 'male') {
+                    prefix = "Mr. "
+                }
+                else {
+                    prefix = "Miss/mrs. "
+                }
+                console.log(`${prefix} ${this.name} can walk and his age ${this.age}`);
+            }
+
+        }
+        // child/derived/sub class 
+        class Student extends Person {
+
+            constructor(name, age, gender, language) {
+                //calling super class constructor
+                super(name, age, gender);
+                this.language = language;
+                console.log("Student class constructor called.")
+            }
+            read() {
+                console.log(`${this.name} can read ${this.language}`);
+            }
+            write() {
+                console.log(`${this.name} can write ${this.language}`);
+            }
+        }
+        class Developer extends Student {
+            constructor(name, age, gender, language, platform) {
+                //call parent class constructor
+                super(name, age, gender, language);
+                this.platform = platform;
+                console.log('Developer class constructor called');
+            }
+            coding() {
+                console.log(`${this.name} can write code in ${this.platform}`);
+            }
+            whatICanDo() {
+                //calling parent class method
+                super.walk();
+                super.read();
+                super.write();
+            }
+        }
+        var d1 = new Developer('sapna bhatt', 22, 'female', 'english', 'React & Node');
+        d1.coding();
+        d1.whatICanDo();
+    </script>
+</body>
+
+</html>

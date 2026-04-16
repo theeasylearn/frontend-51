@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Single level inheritance</h1>
+    <hr />
+    <script>
+        class Person {
+            constructor(name, age, gender) {
+                this.name = name;
+                this.age = age;
+                this.gender = gender
+                console.log('Person class constructor called.')
+            }
+            walk() {
+                //local variable 
+                let prefix = null;
+                if (this.gender === 'male') {
+                    prefix = "Mr. "
+                }
+                else {
+                    prefix = "Miss/mrs. "
+                }
+                console.log(`${prefix} ${this.name} can walk and his age ${this.age}`);
+            }
+
+        }
+        class Student extends Person {
+            constructor(name, age, gender, language) {
+                //calling super class constructor
+                super(name, age, gender);
+                this.language = language;
+                console.log("Student class constructor called.")
+            }
+            read() {
+                console.log(`${this.name} can read ${this.language}`);
+            }
+        }
+        //create object child class 
+        let s1 = new Student('Ram Joshi', 21, 'male', 'hindi');
+        s1.walk();
+        s1.read();
+
+        let s2 = new Student('meena patel', 18, 'female', 'gujarati');
+        s2.walk();
+        s2.read();
+
+        
+    </script>
+</body>
+
+</html>
