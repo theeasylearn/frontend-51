@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>functional binding</h1>
+    <script>
+        //create empty object
+        var user = {
+            name: "Ankit",
+            age: 38,
+            display: function () {
+                console.log("Name", this.name, "Age ", this.age);
+            }
+        };
+        user.display();
+        console.log("");
+        //create alias wrong way
+        // let show = user.display; 
+
+        //create alias as per syntax in javascript
+        let show = user.display.bind(user);
+        show();
+    </script>
+</body>
+
+</html>

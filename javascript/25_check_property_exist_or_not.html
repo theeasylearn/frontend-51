@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>check property exist in object or not.</h1>
+    <script>
+        //create empty object
+        var user = {};
+        console.log("empty object", user);
+
+        //adding key value pair
+        user.name = "ankit";
+        user.surname = "patel";
+        user['age'] = 21;
+        user['gender'] = true;
+        console.log("now object has ", user);
+
+        //check property does not exist
+        if (user.city === undefined) {
+            alert("user object has no key city")
+        }
+
+        //check property does exist
+        if (user.name !== undefined) {
+            alert("user object has property name");
+        }
+
+        if ("pincode" in user)
+        {
+            alert("pincode  exists in user");
+        }
+        else 
+        {
+            alert("pincode does not exists in user");
+        }
+    </script>
+</body>
+
+</html>
