@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>example of list(array) and method part - 1</h1>
+    <script>
+        //create empty list 
+        var fruits = []; // [] brackets is used to create list 
+        console.log("fruit has ", fruits);
+        //add new values at the end of list 
+        fruits.push('apple');
+        fruits.push('banana');
+        fruits.push('mango');
+        fruits.push('pineapple');
+        console.log("now fruit has ", fruits);
+
+        //let use insert new value at beginning 
+        fruits.unshift('watermelon');
+        fruits.unshift('cherry');
+        console.log("now fruit has ", fruits);
+
+        //let us remove value from last
+        fruits.pop(); // pineapple will be removed
+        fruits.pop(); // mango 
+        console.log("now fruit has ", fruits);
+
+        //let us remove value from beginning 
+        fruits.shift(); // cherry
+        console.log("now fruit has ", fruits);
+
+        //remove 1st two items 
+        fruits.splice(0,2); //remove 0th and 1st item
+        console.log("now fruit has ", fruits);
+
+        var fruits2 = ['orange','graps','raspberry','blueberry','coconut'];
+
+        //merge two list 
+        fruits = fruits.concat(fruits2);
+        console.log("now fruit has ", fruits);
+
+        console.log("position of graps",fruits.indexOf('graps'));
+
+        console.log("position of cherry",fruits.indexOf('cherry')); // return -1 if item not found
+
+         console.log("is there any apple",fruits.includes('apple')); //apple
+
+          console.log("is there any orange",fruits.includes('orange')); //apple
+
+
+    </script>
+</body>
+
+</html>

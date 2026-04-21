@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>example of list(array) and method part - 2</h1>
+    <script>
+        var numbers = [10, 20, 30, 40, 50];
+
+        console.log("list has ", numbers);
+
+        console.log("value of 1st item above 30", numbers.find(item => item > 30));
+
+        console.log("position of 1st item above 30", numbers.findIndex(item => item > 30));
+
+        //create an array which has square of all the values in array numbers 
+        // var square_numbers = [];
+        // for (var index = 0; index < 5; index++) {
+        //     let square = numbers[index] * numbers[index];
+        //     square_numbers.push(square);
+        // }
+        // console.log("list of square ",square_numbers);
+        // map function will run 5 times because there are 5 values in numbers. 
+        var square_numbers = numbers.map(function (item) {
+            return item * item;
+        });
+        console.log(square_numbers);
+
+        var list = [45, 7, 82, 19, 63, 34, 91, 12, 77, 28, 55, 3, 89, 41, 66, 22, 98, 15, 74, 50];
+
+        //create list that has only even numbers
+        // var even_list = [];
+        // for (var index = 0; index < list.length; index++) {
+        //     if (list[index] % 2 == 0) {
+        //         even_list.push(list[index]);
+        //     }
+        // }
+        // console.log(even_list);
+
+        //  or 
+        even_list = list.filter(function (item) {
+            if (item % 2 == 0)
+                return item
+        });
+        console.log(even_list);
+        list.sort((num1, num2) => num1 - num2);
+        console.log("sorted list ", list);
+
+        var fruits = ["Mango", "Apple", "Banana", "Orange", "Grapes",
+            "Pineapple", "Strawberry", "Kiwi", "Watermelon", "Cherry",
+            "Blueberry", "Papaya", "Guava", "Pomegranate", "Peach",
+            "Lemon", "Coconut", "Avocado", "Fig", "Dragonfruit"];
+
+        console.log("Original fruits list:", fruits);
+        fruits.sort();
+    </script>
+</body>
+
+</html>
