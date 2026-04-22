@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Example of ES6 spread operator</h1>
+    <script>
+        const list1 = [1, 2, 3, 4, 5];
+        const list2 = [6, 7, 8, 9, 10];
+        console.log(list1, list2);
+
+        //merge list into new list using ES6 spread operator
+        const list3 = [...list1, ...list2];
+        console.log(list3);
+
+        const obj1 = {
+            name: "Ankit",
+            age: 25,
+            city: "Bhavnagar",
+            weight: 85.25,
+        };
+
+        const obj2 = {
+            name: "Ravi",      // different
+            age: 30,          // different
+            city: "Baroda",  // same
+            gender: true,
+        };
+
+        console.log(obj1, obj2);
+        //merge two object into third object
+        let newObject = { ...obj1, ...obj2 };
+        console.log(newObject);
+
+        let result = [];
+        console.log(result);
+        let student1 = { name: 'ram', html: 60, css: 70, javascript: 80 };
+        let student2 = { name: 'shyam', html: 75, css: 65, javascript: 85 };
+        let student3 = { name: 'geeta', html: 80, css: 75, javascript: 90 };
+
+        //add object into list
+        result.push(student1);
+        result.push(student2);
+        // or
+        result = [...result, student3];
+        console.log(result);
+    </script>
+</body>
+
+</html>

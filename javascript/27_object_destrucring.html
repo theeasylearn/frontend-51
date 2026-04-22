@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Example of object destructing</h1>
+    <script>
+        let subject = {
+            name: "Javascript",
+            html: 50,
+            css: 60,
+            javascript: 80,
+            reactjs: 100
+        };
+        console.log(subject);
+
+        //object destructing 
+        let { name, html, css, javascript, reactjs } = subject;
+        console.log(name, html, css, javascript, reactjs);
+    </script>
+</body>
+
+</html>
