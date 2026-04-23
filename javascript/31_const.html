@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Const keyword</h1>
+    <script>
+        //create read only variable
+        const name = 'THE EASYLEARN';
+        const pincode = 364001;
+        const isPrivate = true;
+        const date = 12.7;
+        console.log(name, pincode, isPrivate, date);
+        // name = "T.E.L"; //read only 
+        const user = {
+            name: 'Diya',
+            age: 4,
+            gender: false,
+        };
+
+        console.log('before change', user);
+        user.name = 'Diya Ankit Patel';
+        user.age = 5;
+        console.log('after change', user);
+        
+    </script>
+</body>
+
+</html>
