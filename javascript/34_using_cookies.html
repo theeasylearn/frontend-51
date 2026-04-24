@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>working with cookies</h1>
+    <button type="button" onclick="increaseCount();">Increase Count by 1</button>
+    <h2>count = <span id="output">0</span></h2>
+    <script src="cookies.js"></script>
+    <script>
+        var mycounter = getCookie('mycounter');
+        var count = null;
+        if (mycounter === undefined) {
+            count = 0;
+        }
+        else {
+            count = parseInt(mycounter);
+            document.getElementById('output').innerHTML = count;
+        }
+        function increaseCount() {
+            count++;
+            document.getElementById('output').innerHTML = count;
+            setCookie('mycounter', count);
+        }
+    </script>
+</body>
+
+</html>

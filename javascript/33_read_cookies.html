@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>accessing cookies</h1>
+    <b>use console</b>
+    <script src="cookies.js"></script>
+    <script>
+        //create cookies
+        var name = getCookie('name');
+        var age = getCookie('age');
+        var gender = getCookie('gender');
+        var email = getCookie('email'); //there is no such cookie so getCookie method undefined
+        console.log(name, age, gender, email);
+        if (email === undefined) {
+            alert('email not found');
+        }
+    </script>
+</body>
+
+</html>
