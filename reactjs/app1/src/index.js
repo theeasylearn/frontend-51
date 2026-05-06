@@ -1,17 +1,20 @@
-import React from 'react';
+// import reactdom  
 import ReactDOM from 'react-dom/client';
+// import index css from src folder
+
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// put whatever you want to display inside render method
+var num1 = 99
+var num2 = 9
+var output = (<div>
+  <h2>Expressions</h2>
+  <ul>
+    <li><b>num1 = {num1} num2 = {num2}</b></li>
+    <li>Addition : {num1 + num2}</li>
+    <li>Subtraction {num1 - num2}</li>
+    <li>Multiplication {num1 * num2}</li>
+    <li>Division {num1/num2}</li>
+  </ul>
+</div>)
+root.render(output);
