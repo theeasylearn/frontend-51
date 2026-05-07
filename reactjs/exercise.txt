@@ -1,0 +1,92 @@
+task - 1
+-----------------
+create reactjs app and share screenshot in whatsapp group - 1 day
+
+set - 1
+1) create JSX that will display mans T20 world cup fixture using html and css. 
+2) create JSX that will display all indian state names as symbol list 
+3) create JSX that will display your resume. use variable to display name, dob, address, gender, mobile, email, education etc.
+
+4) apply attractive formatting to resume created in previous example using css.  
+submission :- midnight 10-05-2026
+
+5) create reactjs code to display register screen (email,mobile,password, confirm Password,Gender,Dob )
+submission :- midnight 11-feb-2026
+
+6) create reactjs code to your resume using boostrap framwork 
+submission :- midnight 11-feb-2026
+
+
+5) modify reactjs example no 6 day name of week using decision making statement  
+submission :- midnight 25-feb-2026
+
+6) create one page website for restaurant using boostrap 5. and display it using function component. (do not use AI) 
+refer https://shrijisgardenrestaurant.com/.
+must have 7 different sections 
+submission :- midnight 27-feb-2026
+
+7) make all component resusable using props  in example 8_functional_components.js just like portfolio and portfolioItem.
+submission :- midnight 28-feb-2026
+
+8) redevelop exercise no 6. all component should be resusable using props 
+submission :- midnight 28-feb-2026
+
+9) create class component to provide interface to update score of batter in cricket match. (as per explanation in class lecture)
+submission :- midnight 2-mar-2026
+
+10) update score in above example using state variable 
+submission :- midnight 2-mar-2026
+
+11) update score in above example using state variable & app life cycle
+submission :- midnight 09-mar-2026
+
+12) create EMI calculator using boostrap, state, variable and input from users. 
+submission :- midnight 09-mar-2026
+
+13) create gst calculator using boostrap, state, variable and input from users. 
+submission :- midnight 09-mar-2026
+
+14) modify example no 16 and provide logout operations accordingly hide menus.
+submission :- midnight 12-mar-2026
+
+
+15) create an example that will display all the days of march-2026 in calendar format using list 
+submission :- midnight 14-mar-2026
+
+16) create an example to display india t20 2026 team player detail using list and map 
+    Player Name, Age, Photo, Run, Average, wicket, Econ, 50s 
+submission :- midnight 14-mar-2026
+
+17) apply feature to set & remove bookmark on example no 20 
+submission :- midnight 18-mar-2026
+
+18) create example to calculate EMI from given loan amount, years and rate using functional components and useState 
+submission :- midnight 23-mar-2026
+
+19) create example to calculate single line depreciation value of product from purchase Amount, shelf life and wreckage value using functional and useState.
+submission :- midnight 23-mar-2026
+
+20) create example that will display food dish using attractive inline style using functional component.
+submission :- midnight 23-mar-2026
+
+
+21) create example using styled components that will display Book with below details
+Name, Author, Price, Rating, category, language 
+submission :- midnight 26-mar-2026
+
+21) create Route for each every of IPL 2026. each route should redirect user to functional component of corresponding IPL team which returns team name and other details. use react router dom. 
+submission :- midnight 27-mar-2026
+
+22) create Route for each every continent . each route should redirect user to class component of corresponding continent  which returns continent name and other details. use react router dom. 
+submission :- midnight 27-mar-2026
+
+23) create functional components to fetch data from below url using fetch api and display it in table format using bootstrap. user should also able to delete album 
+https://jsonplaceholder.typicode.com/albums
+submission :- midnight 03-april-2026
+
+23) create functional components to fetch data from below url using axios package and display it in responsive layout using card and columns, use bootstrap. user should also able to delete album  
+https://jsonplaceholder.typicode.com/users
+submission :- midnight 03-april-2026
+
+
+

@@ -1,0 +1,68 @@
+/* Container styling for the list */
+.state-list-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    list-style: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Base styling for all list items */
+.state-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.state-item:last-child {
+    border-bottom: none;
+}
+
+.state-item:hover {
+    background-color: #f9f9f9;
+}
+
+/* Specific styling for BJP-led states */
+.party-bjp {
+    border-left: 5px solid #FF9933;
+    /* Saffron */
+}
+
+.party-bjp::after {
+    content: "BJP";
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #FF9933;
+    background: #fff5eb;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Specific styling for INC-led states */
+.party-inc {
+    border-left: 5px solid #19AAED;
+    /* Blue */
+}
+
+.party-inc::after {
+    content: "INC";
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #19AAED;
+    background: #eef8ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Default for other parties/coalitions */
+.party-other {
+    border-left: 5px solid #6c757d;
+}
