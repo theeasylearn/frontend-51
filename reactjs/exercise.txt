@@ -5,13 +5,16 @@ create reactjs app and share screenshot in whatsapp group - 1 day
 set - 1
 1) create JSX that will display mans T20 world cup fixture using html and css. 
 2) create JSX that will display all indian state names as symbol list 
-3) create JSX that will display your resume. use variable to display name, dob, address, gender, mobile, email, education etc.
 
-4) apply attractive formatting to resume created in previous example using css.  
-submission :- midnight 10-05-2026
+3) create JSX that will display your resume. use variable to display name, dob, address, gender, mobile, email, education, skill, experience, achievements  etc (use bootstrap ).
 
-5) create reactjs code to display register screen (email,mobile,password, confirm Password,Gender,Dob )
-submission :- midnight 11-feb-2026
+
+4) create website for one page website for restaurant that has at least 3 section header, content footer. Develop functional components for each section and use it in Website functional components.
+
+5) create website for one page website for Gym that has at least 3 section header, content footer. Develop functional components for each section and use it in Website functional components.
+
+
+
 
 6) create reactjs code to your resume using boostrap framwork 
 submission :- midnight 11-feb-2026
