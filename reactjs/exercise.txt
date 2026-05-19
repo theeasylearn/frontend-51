@@ -13,12 +13,15 @@ set - 1
 
 5) create website for one page website for Gym that has at least 3 section header, content footer. Develop functional components for each section and use it in Website functional components.
 
+6) create Menu functional component that will display 10 menu restaurant items. display menu responsively. use card, img and list to display each menu item. display photo, name, price, quantity, description of each menu item. 
 
+7) create Team functional component that will responsively display 12 team members detail using card, img and list. display each team members name, photo, qualification, experience, and designation and contact no and email address. 
+
+8) create Team functional component that will responsively display 12 team members detail using card, img and list. display each team members name, photo, qualification, experience, and designation and contact no and email address. 
 
 
 6) create reactjs code to your resume using boostrap framwork 
 submission :- midnight 11-feb-2026
-
 
 5) Develop an example which display current time in 12 hours format with AM PM symbol 
 submission :- midnight 25-feb-2026
