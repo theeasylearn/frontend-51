@@ -1,39 +1,19 @@
 // import reactdom  
 import ReactDOM from 'react-dom/client';
+import React from 'react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-function Student(props) {
-  return (<tr>
-    <td>{props.name}</td>
-    <td width='20%'>{props.maths}</td>
-    <td width='20%'>{props.science}</td>
-    <td width='20%'>{props.english}</td>
-  </tr>)
-}
-function Division() {
-  return (<div className='container'>
-    <div className="row">
-      <div className="col-12">
-        <h2>A Division Result </h2>
+//create class Components using ES6 standard
+class Website extends React.Component {
+  // render function will execute automatically & return JSX when we use class components 
+  render() {
+    return (<div className='container'>
+      <div className="row">
+        <div className="col-12">
+          <h1>Welcome to site</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolor tempore qui magnam nostrum eos laudantium, voluptatum culpa quidem pariatur a iure ducimus est sequi, architecto ut modi? Vitae, quos?</p>
+        </div>
       </div>
-      <div className="col-12">
-        <table className='table table-bordered table-striped'>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Maths</th>
-              <th>Science</th>
-              <th>English</th>
-            </tr>
-          </thead>
-          <tbody>
-            <Student name='Jiya' maths='100' science='100' english='99' />
-            <Student name='Diya' maths='99' science='100' english='100' />
-            <Student name='Ghanshyam' maths='98' science='97' english='99' />
-            
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>)
+    </div>)
+  }
 }
-root.render(<Division />);
+root.render(<Website />);
