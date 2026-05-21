@@ -19,6 +19,12 @@ set - 1
 
 8) create Team functional component that will responsively display 12 team members detail using card, img and list. display each team members name, photo, qualification, experience, and designation and contact no and email address. 
 
+9) create Tour Operator class component. this will display 12 Tour Class component. each tour has Name, No of days, price, description. Tour class must have constructor and properties.
+
+
+10) Create class component Shop. that will display 8 product class component. each product has name, price, weight, size, description. Product must have constructor and properties
+
+
 
 6) create reactjs code to your resume using boostrap framwork 
 submission :- midnight 11-feb-2026
