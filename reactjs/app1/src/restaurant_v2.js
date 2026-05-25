@@ -1,5 +1,5 @@
 import React from "react";
-import DinningTable from './dinning_table';
+import DinningTable from './dinning_table_v2';
 export default class Restaurant extends React.Component {
   render() {
     return (<div className='container'>
