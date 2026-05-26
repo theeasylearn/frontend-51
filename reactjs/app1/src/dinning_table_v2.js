@@ -25,36 +25,54 @@ export default class DinningTable extends React.Component {
       papad: 0,
       total: 0
     }
-  
+
   }
-  componentWillMount()
-  {
+  componentWillMount() {
     console.log('component will mount method called');
   }
-  componentDidMount()
-  {
-     console.log('component did mount method called');
+  componentDidMount() {
+    console.log('component did mount method called');
+  }
+  // updating 
+  shouldComponentUpdate(nextProp, nextState) {
+    console.log('shouldComponentUpdate method called.');
+    if (nextState.thali > 4) {
+      this.setState({
+        thali: 4
+      });
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  componentWillUpdate(nextProp, nextState) {
+    console.log('componentWillUpdate method is called');
+  }
+  componentDidUpdate(prevProp, prevState) {
+    console.log('componentDidUpdate method is called');
+    //always update state variable conditionally inside componentDidUpdate method 
+    if (this.state.thali != prevState.thali ||
+      this.state.ras != prevState.ras ||
+      this.state.roti != prevState.roti ||
+      this.state.papad != prevState.papad ||
+      this.state.chas != prevState.chas
+    ) {
+      this.setState({
+        total: (this.state.thali * DinningTable.THALI_PRICE) + (this.state.roti * DinningTable.ROTI_PRICE) + (this.state.papad * DinningTable.PAPAD_PRICE) + (this.state.chas * DinningTable.CHAS_PRICE) + (this.state.ras * DinningTable.RAS_PRICE)
+      })
+    }
   }
   updateThali = () => {
     this.setState({
       thali: this.state.thali + 1,
 
-    }, () => {
-      //anonyms call back function which execute only after that state variable updated
-      this.setState({
-        total: (this.state.thali * DinningTable.THALI_PRICE) + (this.state.roti * DinningTable.ROTI_PRICE) + (this.state.papad * DinningTable.PAPAD_PRICE) + (this.state.chas * DinningTable.CHAS_PRICE) + (this.state.ras * DinningTable.RAS_PRICE)
-      })
     });
   }
 
   updateRas = () => {
     this.setState({
       ras: this.state.ras + 1
-    }, () => {
-      //anonyms call back function which execute only after that state variable updated
-       this.setState({
-        total: (this.state.thali * DinningTable.THALI_PRICE) + (this.state.roti * DinningTable.ROTI_PRICE) + (this.state.papad * DinningTable.PAPAD_PRICE) + (this.state.chas * DinningTable.CHAS_PRICE) + (this.state.ras * DinningTable.RAS_PRICE)
-      })
     });
   }
 
@@ -62,33 +80,18 @@ export default class DinningTable extends React.Component {
   updateRoti = () => {
     this.setState({
       roti: this.state.roti + 1
-    }, () => {
-      //anonyms call back function which execute only after that state variable updated
-       this.setState({
-        total: (this.state.thali * DinningTable.THALI_PRICE) + (this.state.roti * DinningTable.ROTI_PRICE) + (this.state.papad * DinningTable.PAPAD_PRICE) + (this.state.chas * DinningTable.CHAS_PRICE) + (this.state.ras * DinningTable.RAS_PRICE)
-      })
     });
   }
 
   updatePapad = () => {
     this.setState({
       papad: this.state.papad + 1
-    }, () => {
-      //anonyms call back function which execute only after that state variable updated
-       this.setState({
-        total: (this.state.thali * DinningTable.THALI_PRICE) + (this.state.roti * DinningTable.ROTI_PRICE) + (this.state.papad * DinningTable.PAPAD_PRICE) + (this.state.chas * DinningTable.CHAS_PRICE) + (this.state.ras * DinningTable.RAS_PRICE)
-      })
     });
   }
 
   updateChas = () => {
     this.setState({
       chas: this.state.chas + 1
-    }, () => {
-      //anonyms call back function which execute only after that state variable updated
-       this.setState({
-        total: (this.state.thali * DinningTable.THALI_PRICE) + (this.state.roti * DinningTable.ROTI_PRICE) + (this.state.papad * DinningTable.PAPAD_PRICE) + (this.state.chas * DinningTable.CHAS_PRICE) + (this.state.ras * DinningTable.RAS_PRICE)
-      })
     });
   }
 
