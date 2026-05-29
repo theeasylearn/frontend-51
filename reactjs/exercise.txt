@@ -28,6 +28,9 @@ set - 1
 
 12) create example to calculate single line depreciation value of product from purchase Amount, shelf life and wreckage value using class components.
 
+13) create example that will calculate square or qube of given number based upon user selection of square and qube by radio button. (controlled components)
+
+14) create gst calculator using text, radio button and (controlled component)
 
 
 6) create reactjs code to your resume using boostrap framwork 
