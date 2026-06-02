@@ -12,42 +12,44 @@ class ShopMenu extends React.Component {
     }
     doLogin = () => {
         this.setState({
-            isLoggedIn: true
+            isLoggedIn:true
         });
     }
     logout = () => {
         this.setState({
-            isLoggedIn: false
+            isLoggedIn:false
         })
     }
     GuestMenu = () => {
-
-        return (<>
-            <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Register</a>
-            </li>
-            <li className="nav-item">
-                <button onClick={this.doLogin} className="nav-link text-bg-primary" type='button' >Login</button>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Forgot Password</a>
-            </li>
-        </>)
+        if (this.state.isLoggedIn === false)
+            return (<>
+                <li className="nav-item">
+                    <a className="nav-link text-dark" href="#">Register</a>
+                </li>
+                <li className="nav-item">
+                    <button onClick={this.doLogin} className="nav-link text-bg-primary" type='button' >Login</button>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link text-dark" href="#">Forgot Password</a>
+                </li>
+            </>)
     }
     UserMenu = () => {
-        return (<>
-            <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Cart</a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Change Password</a>
-            </li>
+        if (this.state.isLoggedIn === true) {
+            return (<>
+                <li className="nav-item">
+                    <a className="nav-link text-dark" href="#">Cart</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link text-dark" href="#">Change Password</a>
+                </li>
 
-            <li className="nav-item">
-                <button className="nav-link text-danger fw-medium"
+                <li className="nav-item">
+                    <button className="nav-link text-danger fw-medium"
                     onClick={this.logout}>Logout</button>
-            </li>
-        </>)
+                </li>
+            </>)
+        }
     }
     render() {
         return (<nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
@@ -70,9 +72,8 @@ class ShopMenu extends React.Component {
                     </ul>
                     {/* Auth Links */}
                     <ul className="navbar-nav">
-                        { this.state.isLoggedIn === false && <this.GuestMenu />  }
-                        { this.state.isLoggedIn === true && <this.UserMenu />  }
-                        
+                        <this.GuestMenu />
+                        <this.UserMenu />
                     </ul>
                 </div>
             </div>

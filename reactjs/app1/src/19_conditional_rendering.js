@@ -70,8 +70,7 @@ class ShopMenu extends React.Component {
                     </ul>
                     {/* Auth Links */}
                     <ul className="navbar-nav">
-                        { this.state.isLoggedIn === false && <this.GuestMenu />  }
-                        { this.state.isLoggedIn === true && <this.UserMenu />  }
+                        {(this.state.isLoggedIn === false) ? <this.GuestMenu /> : <this.UserMenu /> }
                         
                     </ul>
                 </div>

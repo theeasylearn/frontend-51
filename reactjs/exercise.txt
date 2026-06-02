@@ -33,11 +33,6 @@ set - 1
 14) create gst calculator using text, radio button and (controlled component)
 
 
-6) create reactjs code to your resume using boostrap framwork 
-submission :- midnight 11-feb-2026
-
-5) Develop an example which display current time in 12 hours format with AM PM symbol 
-submission :- midnight 25-feb-2026
 
 6) Develop an example which display Person Name and Age with Tag. tag can be Master, Adult, Experienced, Mature, Veteran based upon below criteria 
     age < 18 then display master
