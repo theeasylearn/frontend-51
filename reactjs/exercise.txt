@@ -32,8 +32,6 @@ set - 1
 
 14) create gst calculator using text, radio button and (controlled component)
 
-
-
 6) Develop an example which display Person Name and Age with Tag. tag can be Master, Adult, Experienced, Mature, Veteran based upon below criteria 
     age < 18 then display master
     age < 30  then display Adult
@@ -75,8 +73,8 @@ submission :- midnight 12-mar-2026
 submission :- midnight 14-mar-2026
 
 16) create an example to display india t20 2026 team player detail using list and map 
-    Player Name, Age, Photo, Run, Average, wicket, Econ, 50s 
-submission :- midnight 14-mar-2026
+    Player Name, Age, Photo, Run, Average, wicket, Econ, 50s, 100s 
+
 
 17) apply feature to set & remove bookmark on example no 20 
 submission :- midnight 18-mar-2026
