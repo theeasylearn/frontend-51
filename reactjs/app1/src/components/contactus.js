@@ -1,8 +1,10 @@
 import React from "react";
 import './site.css';
+import Sitemenu from './sitemenu';
 export default class Contactus extends React.Component {
     render() {
         return (<div>
+            <Sitemenu />
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span className="navbar-toggler-icon" />
             </button>

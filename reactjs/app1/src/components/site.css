@@ -43,3 +43,22 @@ footer {
 .contact-info {
     font-size: 1.1rem;
 }
+
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.error-code {
+    font-size: 12rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #0d6efd;
+    text-shadow: 0 10px 30px rgba(13, 110, 253, 0.2);
+}
+
+.navbar {
+    background: #212529;
+}

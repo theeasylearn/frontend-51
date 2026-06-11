@@ -1,28 +1,11 @@
 import React from "react";
 import './site.css';
+import Sitemenu from './sitemenu';
 // class component 
 export default class Career extends React.Component {
     render() {
         return (<div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <div className="container">
-                    <a className="navbar-brand fw-bold" href="index.html">
-                        <i className="fas fa-graduation-cap" /> EasyLearn Academy
-                    </a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span className="navbar-toggler-icon" />
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto">
-                            <li className="nav-item"><a className="nav-link" href="index.html">Home</a></li>
-                            <li className="nav-item"><a className="nav-link" href="about.html">About Us</a></li>
-                            <li className="nav-item"><a className="nav-link" href="courses.html">Courses</a></li>
-                            <li className="nav-item"><a className="nav-link active" href="career.html">Career</a></li>
-                            <li className="nav-item"><a className="nav-link" href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <Sitemenu />
             <div className="container mt-5 pt-5">
                 <div className="text-center mb-5">
                     <h1 className="display-5 fw-bold">Launch Your IT Career</h1>
