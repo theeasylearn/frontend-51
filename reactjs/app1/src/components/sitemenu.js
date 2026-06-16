@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 export default function Sitemenu() {
     return (<nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container">
@@ -9,11 +10,21 @@ export default function Sitemenu() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ms-auto">
-                    <li className="nav-item"><a className="nav-link active" href="index.html">Home</a></li>
-                    <li className="nav-item"><a className="nav-link" href="about.html">About Us</a></li>
-                    <li className="nav-item"><a className="nav-link" href="courses.html">Courses</a></li>
-                    <li className="nav-item"><a className="nav-link" href="career.html">Career</a></li>
-                    <li className="nav-item"><a className="nav-link" href="contact.html">Contact Us</a></li>
+                    <li className="nav-item">
+                        <Link className="nav-link active" to='/'>Home</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to='/aboutus'>About Us</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/course">Courses</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/career">Career</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/contactus">Contact Us</Link>
+                    </li>
                 </ul>
             </div>
         </div>
