@@ -1,29 +1,54 @@
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import Aboutus  from './components/aboutus';
-import Home from './components/home';
-import Career from './components/career';
-import Course from './components/course';
-import Contactus from './components/contactus';
-import Pagenotfound from './components/page_not_found';
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
-function MyRouter()
-{
-    return (
-        <BrowserRouter>
-            <Routes>
-                {/* localhost:3000 */}
-                <Route path='/' element={<Home/>} index />
-                
-                <Route path='/aboutus' element={<Aboutus />} />
-                <Route path='/career' element={<Career />} />
-                <Route path='/course' element={<Course />} />
-                <Route path='/contactus' element={<Contactus />} />
-
-                {/* create route for 404 request(page not found) */}
-                <Route path='*' element={<Pagenotfound />} />
-            </Routes>
-        </BrowserRouter>
-    );
+function APIDemo() {
+    //create state array 
+    let [posts, setPost] = useState([]); //empty array 
+    useEffect(() => {
+        if (posts.length === 0) {
+            //it is used to call api (fetch data from server)
+            let apiAddress = "https://jsonplaceholder.typicode.com/posts";
+            fetch(apiAddress).then((data) => data.json()).then((response) => {
+                console.log(response);
+                //data store state array 
+                setPost(response);
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
+    });
+    return (<div className="container py-5">
+        <div className="row">
+            <div className="col-12">
+                <div className="table-container">
+                    <div className="table-responsive">
+                        <table className="table table-hover table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th width={80}>User ID</th>
+                                    <th width={80}>ID</th>
+                                    <th width={280}>Title</th>
+                                    <th>Body</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                {posts.map((item) => {
+                                    return (<tr>
+                                        <td>{item.userId}</td>
+                                        <td>{item.id}</td>
+                                        <td>{item.title}</td>
+                                        <td>{item.body}</td>
+                                        <td><button type='button' className='btn btn-danger'>Delete</button></td>
+                                    </tr>)
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    )
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MyRouter />)
+root.render(<APIDemo />)
