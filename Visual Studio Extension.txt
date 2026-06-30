@@ -7,3 +7,6 @@ notepad++ key
 view in browser Kopte ho 
 tab color 
 file extension
+
+AI - Extension 
+ GitHub Copilot Chat
