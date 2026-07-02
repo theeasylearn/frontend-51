@@ -1,0 +1,10 @@
+# shop_admin Changes Log
+[2026-07-02T21:05:32+05:30] error.log - Initialized empty error log file.
+[2026-07-02T21:05:32+05:30] changes.log - Created change log and initialized protocol.
+[2026-07-02T21:20:00+05:30] dashboard.html - Created dashboard page displaying inventory stats and order volumes.
+[2026-07-02T21:25:00+05:30] users.html - Created users directory page showing user lists from users.php API.
+[2026-07-02T21:30:00+05:30] send-email.html - Created send-email form page with query string auto-prefill capability.
+[2026-07-02T21:35:00+05:30] orders.html - Created orders management page utilizing orders.php API fields and badges.
+[2026-07-02T21:40:00+05:30] site_* pages - Renamed dashboard, users, send-email, and orders pages to use site_ prefix.
+[2026-07-02T21:55:00+05:30] site_orders.html - Updated view detail links to target site_order_detail.html.
+[2026-07-02T21:58:00+05:30] site_order_detail.html - Created detailed order summary page displaying order metadata and product rows dynamically.

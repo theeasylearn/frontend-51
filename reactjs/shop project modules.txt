@@ -28,7 +28,7 @@ Types of users
 			
             
             Users management   (class)      
-                view, search, shopping history, send mail, block & unblock   
+                view, search, shopping history, send mail,  
                 users
                     id,email,mobile,password,created_at,islive,isdeleted
             
