@@ -2464,12 +2464,6 @@ button {
   }
 }
 
-.footer-section {
-  padding-top: 6rem;
-}
-.footer-section .logo {
-  margin-bottom: 6rem;
-}
 .footer-section .footer-heading {
   font-size: 2rem;
   color: #FFFFFF;
@@ -2493,7 +2487,7 @@ button {
   padding-left: 0;
 }
 .footer-section .footer-link ul li {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .footer-section .footer-link .address {
   display: flex;
