@@ -1,26 +1,10 @@
 import React from 'react';
+import Sidebar from './sidebar';
+import SiteFooter from './site_footer';
 export default class AddCategory extends React.Component {
   render() {
     return (<div className="wrapper">
-      <nav id="sidebar" className="sidebar js-sidebar">
-        <div className="sidebar-content js-simplebar">
-          <a className="sidebar-brand" href="index.html">
-            <span className="sidebar-brand-text align-middle">
-              Administrator
-            </span>
-          </a>
-          <ul className="sidebar-nav">
-            <li className="sidebar-header">
-              Modules
-            </li>
-            <li className="sidebar-item">
-              <a className="sidebar-link">
-                <span className="align-middle text-white">Dashboards</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Sidebar />
       <div className="main">
         <nav className="navbar navbar-expand navbar-light navbar-bg">
           <a className="sidebar-toggle js-sidebar-toggle">
@@ -69,15 +53,7 @@ export default class AddCategory extends React.Component {
             </div>
           </div>
         </main>
-        <footer className="footer">
-          <div className="container-fluid">
-            <div className="row text-muted">
-              <div className="col-12">
-                <p className="text-center">Developed @ the easylearn academy</p>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </div>
     );
