@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 
@@ -49,9 +50,9 @@ export default class Orders extends React.Component {
 														<td>$125,000</td>
 														<td><span className="badge bg-warning">Pending</span></td>
 														<td>
-															<a href="site_order_detail.html?id=46" className="btn btn-sm btn-primary">
+															<Link to="/order-detail?id=46" className="btn btn-sm btn-primary">
 																<i className="align-middle" data-feather="eye" /> View Detail
-															</a>
+															</Link>
 														</td>
 													</tr>
 													<tr>
@@ -62,9 +63,9 @@ export default class Orders extends React.Component {
 														<td>$125,100</td>
 														<td><span className="badge bg-warning">Pending</span></td>
 														<td>
-															<a href="site_order_detail.html?id=45" className="btn btn-sm btn-primary">
+															<Link to="/order-detail?id=45" className="btn btn-sm btn-primary">
 																<i className="align-middle" data-feather="eye" /> View Detail
-															</a>
+															</Link>
 														</td>
 													</tr>
 													<tr>
@@ -75,9 +76,9 @@ export default class Orders extends React.Component {
 														<td>$1,300</td>
 														<td><span className="badge bg-warning">Pending</span></td>
 														<td>
-															<a href="site_order_detail.html?id=42" className="btn btn-sm btn-primary">
+															<Link to="/order-detail?id=42" className="btn btn-sm btn-primary">
 																<i className="align-middle" data-feather="eye" /> View Detail
-															</a>
+															</Link>
 														</td>
 													</tr>
 													<tr>
@@ -88,9 +89,9 @@ export default class Orders extends React.Component {
 														<td>$125,200</td>
 														<td><span className="badge bg-danger">Cancelled</span></td>
 														<td>
-															<a href="site_order_detail.html?id=21" className="btn btn-sm btn-primary">
+															<Link to="/order-detail?id=21" className="btn btn-sm btn-primary">
 																<i className="align-middle" data-feather="eye" /> View Detail
-															</a>
+															</Link>
 														</td>
 													</tr>
 													<tr>
@@ -101,9 +102,9 @@ export default class Orders extends React.Component {
 														<td>$1,767</td>
 														<td><span className="badge bg-primary">Shipped</span></td>
 														<td>
-															<a href="site_order_detail.html?id=8" className="btn btn-sm btn-primary">
+															<Link to="/order-detail?id=8" className="btn btn-sm btn-primary">
 																<i className="align-middle" data-feather="eye" /> View Detail
-															</a>
+															</Link>
 														</td>
 													</tr>
 												</tbody>

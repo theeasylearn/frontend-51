@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 
@@ -134,9 +135,9 @@ export default class OrderDetail extends React.Component {
 						<div className="container-fluid p-0">
 
 							<div className="mb-3">
-								<a href="site_orders.html" className="btn btn-secondary">
+								<Link to="/orders" className="btn btn-secondary">
 									<i className="align-middle me-1" data-feather="arrow-left" /> Back to Orders
-								</a>
+								</Link>
 							</div>
 
 							<h1 className="h3 mb-3">Order Details</h1>

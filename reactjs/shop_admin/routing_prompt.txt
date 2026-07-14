@@ -1,0 +1,9 @@
+create Route in index.js file inside MyRouter function. 
+     create route for all the components included in index.js file. 
+        also replace all the anchor tags in all the files with route
+     
+    call MyRouter from render function.
+
+do not read any other files except src folder.do not ask for permission, directly complete task 
+
+after finish task list all the files updated and provide info about how many token used for updateing each files.

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Login extends React.Component {
 	render() {
@@ -29,7 +30,7 @@ export default class Login extends React.Component {
 													<label className="form-label">Password</label>
 													<input className="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
 													<small>
-														<a href="#">Forgot password?</a>
+														<Link to="/forgot-password">Forgot password?</Link>
 													</small>
 												</div>
 												<div className="d-grid gap-2 mt-3">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 export default class Category extends React.Component {
@@ -17,11 +18,12 @@ export default class Category extends React.Component {
                         <div className="row">
                             <div className="col-12">
                                 <div className="card">
-                                    <div className="card-header">
+                                    <div className="card-header d-flex justify-content-between">
                                         <h4 className="card-title mb-0 text-dark">
                                             <span className="text-bg-primary p-1">Existing Categories</span> - Category
                                             management
                                         </h4>
+                                        <Link to="/add-category" className="btn btn-sm btn-primary">Add Category</Link>
                                     </div>
                                     <div className="card-body">
                                         {/* create html table that display category id, title, photo, islive and button to edit and delete category */}
@@ -46,7 +48,7 @@ export default class Category extends React.Component {
                                                     </td>
                                                     <td>Yes</td>
                                                     <td>
-                                                        <a href="site_edit_category.html" className="btn btn-sm btn-primary">Edit</a>
+                                                        <Link to="/edit-category" className="btn btn-sm btn-primary">Edit</Link>
                                                         <button className="btn btn-sm btn-danger">Delete</button>
                                                     </td>
                                                 </tr>

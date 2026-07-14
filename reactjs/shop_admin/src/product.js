@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 export default class Product extends React.Component {
@@ -40,7 +41,7 @@ export default class Product extends React.Component {
 											<h4 className="card-title mb-0 text-dark">
 												<span className="text-bg-primary p-1">Existing Products</span> - Product management
 											</h4>
-											<a href="site_add_product.html" className="btn btn-sm btn-success">Add Product</a>
+											<Link to="/add-product" className="btn btn-sm btn-success">Add Product</Link>
 										</div>
 										<div className="card-body">
 											<table className="table table-striped table-hover">
@@ -76,7 +77,7 @@ export default class Product extends React.Component {
 														<td>Latest flagship phone</td>
 														<td>Yes</td>
 														<td>
-															<a href="site_edit_product.html" className="btn btn-sm btn-primary">Edit</a>
+															<Link to="/edit-product" className="btn btn-sm btn-primary">Edit</Link>
 															<button className="btn btn-sm btn-danger">Delete</button>
 														</td>
 													</tr>

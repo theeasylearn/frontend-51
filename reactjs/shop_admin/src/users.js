@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 export default class Users extends React.Component {
@@ -42,9 +43,9 @@ export default class Users extends React.Component {
 														<td>ankit3385@gmail.com</td>
 														<td>1234567890</td>
 														<td>
-															<a href="site_send-email.html?email=ankit3385@gmail.com" className="btn btn-sm btn-info text-white">
+															<Link to="/send-email?email=ankit3385@gmail.com" className="btn btn-sm btn-info text-white">
 																<i className="align-middle me-1" data-feather="mail" /> Send Email
-															</a>
+															</Link>
 															<button className="btn btn-sm btn-secondary">
 																<i className="align-middle me-1" data-feather="clock" /> View History
 															</button>
@@ -55,9 +56,9 @@ export default class Users extends React.Component {
 														<td>ankit3395@gmail.com</td>
 														<td>1234567891</td>
 														<td>
-															<a href="site_send-email.html?email=ankit3395@gmail.com" className="btn btn-sm btn-info text-white">
+															<Link to="/send-email?email=ankit3395@gmail.com" className="btn btn-sm btn-info text-white">
 																<i className="align-middle me-1" data-feather="mail" /> Send Email
-															</a>
+															</Link>
 															<button className="btn btn-sm btn-secondary">
 																<i className="align-middle me-1" data-feather="clock" /> View History
 															</button>
@@ -68,9 +69,9 @@ export default class Users extends React.Component {
 														<td>ankit33855@gmail.com</td>
 														<td>1234567895</td>
 														<td>
-															<a href="site_send-email.html?email=ankit33855@gmail.com" className="btn btn-sm btn-info text-white">
+															<Link to="/send-email?email=ankit33855@gmail.com" className="btn btn-sm btn-info text-white">
 																<i className="align-middle me-1" data-feather="mail" /> Send Email
-															</a>
+															</Link>
 															<button className="btn btn-sm btn-secondary">
 																<i className="align-middle me-1" data-feather="clock" /> View History
 															</button>
@@ -81,9 +82,9 @@ export default class Users extends React.Component {
 														<td>dibynyjuc@mailinator.com</td>
 														<td>+1 (665) 326-9563</td>
 														<td>
-															<a href="site_send-email.html?email=dibynyjuc@mailinator.com" className="btn btn-sm btn-info text-white">
+															<Link to="/send-email?email=dibynyjuc@mailinator.com" className="btn btn-sm btn-info text-white">
 																<i className="align-middle me-1" data-feather="mail" /> Send Email
-															</a>
+															</Link>
 															<button className="btn btn-sm btn-secondary">
 																<i className="align-middle me-1" data-feather="clock" /> View History
 															</button>
@@ -94,9 +95,9 @@ export default class Users extends React.Component {
 														<td>ram@gmail.com</td>
 														<td>+1 (762) 436-8979</td>
 														<td>
-															<a href="site_send-email.html?email=ram@gmail.com" className="btn btn-sm btn-info text-white">
+															<Link to="/send-email?email=ram@gmail.com" className="btn btn-sm btn-info text-white">
 																<i className="align-middle me-1" data-feather="mail" /> Send Email
-															</a>
+															</Link>
 															<button className="btn btn-sm btn-secondary">
 																<i className="align-middle me-1" data-feather="clock" /> View History
 															</button>
@@ -107,9 +108,9 @@ export default class Users extends React.Component {
 														<td>vybiqiweby@mailinator.com</td>
 														<td>+1 (627) 649-4204</td>
 														<td>
-															<a href="site_send-email.html?email=vybiqiweby@mailinator.com" className="btn btn-sm btn-info text-white">
+															<Link to="/send-email?email=vybiqiweby@mailinator.com" className="btn btn-sm btn-info text-white">
 																<i className="align-middle me-1" data-feather="mail" /> Send Email
-															</a>
+															</Link>
 															<button className="btn btn-sm btn-secondary">
 																<i className="align-middle me-1" data-feather="clock" /> View History
 															</button>

@@ -1,0 +1,28 @@
+read public/theme folder. 
+    convert all the html files into jsx. jsx must have components.
+     you need to work upon all files whose name start with site_ 
+     include required css and javascript cdn or local files in index.html file of public folder 
+      use reusable class components for sidebar and footer and call them in all files. 
+      also use react router for navigation between pages. define router function in index.js file. 
+      replace anchor tag with routes in all the files 
+
+do not read any other folder which are not required. 
+
+
+make project in proper folder structure.  like this 
+
+src 
+    sidebar.js 
+    footer.js 
+    home.js 
+    about.js 
+    contact.js 
+    product.js 
+    order.js 
+    user.js 
+    sendemail.js 
+    orderdetail.js 
+    addproduct.js 
+    editproduct.js 
+  
+one work complete provide in-depath token usege report 
