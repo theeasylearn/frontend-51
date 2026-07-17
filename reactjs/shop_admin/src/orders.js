@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 
-export default class Orders extends React.Component {
-	render() {
+export default function Orders() {
 		return (
 			<div className="wrapper">
 				<Sidebar />
@@ -121,5 +120,4 @@ export default class Orders extends React.Component {
 				</div>
 			</div>
 		);
-	}
 }

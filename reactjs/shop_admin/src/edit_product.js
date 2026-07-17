@@ -2,8 +2,7 @@ import React from 'react';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 
-export default class EditProduct extends React.Component {
-	render() {
+export default function EditProduct() {
 		return (
 			<div className="wrapper">
 				<Sidebar />
@@ -99,5 +98,4 @@ export default class EditProduct extends React.Component {
 				</div>
 			</div>
 		);
-	}
 }

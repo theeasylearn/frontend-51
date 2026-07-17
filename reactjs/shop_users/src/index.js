@@ -16,8 +16,6 @@ import ChangePassword from './changepassword';
 import ForgotPassword from './forgotpassword';
 import Profile from './profile';
 import Order from './order';
-import AddProduct from './addproduct';
-import EditProduct from './editproduct';
 
 function MyRouter() {
     return (

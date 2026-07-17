@@ -1,9 +1,8 @@
 import React from 'react';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
-export default class AddCategory extends React.Component {
-  render() {
-    return (<div className="wrapper">
+export default function AddCategory() {
+  return (<div className="wrapper">
       <Sidebar />
       <div className="main">
         <nav className="navbar navbar-expand navbar-light navbar-bg">
@@ -56,6 +55,5 @@ export default class AddCategory extends React.Component {
         <SiteFooter />
       </div>
     </div>
-    );
-  }
+  );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
-export default class SiteFooter extends React.Component {
-	render() {
+export default function SiteFooter() {
 		return (
 			<footer className="footer">
 				<div className="container-fluid">
@@ -12,5 +11,4 @@ export default class SiteFooter extends React.Component {
 				</div>
 			</footer>
 		);
-	}
 }

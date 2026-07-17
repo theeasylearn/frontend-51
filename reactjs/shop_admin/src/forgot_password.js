@@ -1,7 +1,6 @@
 import React from 'react';
 
-export default class ForgotPassword extends React.Component {
-	render() {
+export default function ForgotPassword() {
 		return (
 			<main className="d-flex w-100 h-100">
 				<div className="container d-flex flex-column">
@@ -38,5 +37,4 @@ export default class ForgotPassword extends React.Component {
 				</div>
 			</main>
 		);
-	}
 }

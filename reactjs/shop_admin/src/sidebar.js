@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-export default class Sidebar extends React.Component {
-    render() {
+export default function Sidebar() {
         return (
             <nav id="sidebar" className="sidebar js-sidebar">
                 <div className="sidebar-content js-simplebar">
@@ -43,5 +42,4 @@ export default class Sidebar extends React.Component {
                 </div>
             </nav>
         );
-    }
 }

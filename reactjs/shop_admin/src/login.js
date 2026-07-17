@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Login extends React.Component {
-	render() {
+export default function Login() {
 		return (
 			<main className="d-flex w-100 h-100">
 				<div className="container d-flex flex-column">
@@ -30,8 +29,8 @@ export default class Login extends React.Component {
 													<label className="form-label">Password</label>
 													<input className="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
 													<small>
-														<Link to="/forgot-password">Forgot password?</Link>
-													</small>
+ 														<Link to="/forgot-password">Forgot password?</Link>
+ 													</small>
 												</div>
 												<div className="d-grid gap-2 mt-3">
 													<button type="submit" className="btn btn-lg btn-primary" href="index.html">Sign in</button>
@@ -46,5 +45,4 @@ export default class Login extends React.Component {
 				</div>
 			</main>
 		);
-	}
 }

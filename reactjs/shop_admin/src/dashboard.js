@@ -2,8 +2,7 @@ import React from 'react';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 
-export default class Dashboard extends React.Component {
-	render() {
+export default function Dashboard() {
 		return (
 			<div className="wrapper">
 				<Sidebar />
@@ -184,5 +183,4 @@ export default class Dashboard extends React.Component {
 				</div>
 			</div>
 		);
-	}
 }
