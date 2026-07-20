@@ -1,24 +1,65 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
 import axios from 'axios';
+
 export default function Category() {
-        useEffect(() =>{
-            //we alway use useEffect hook in function component to get data from server using api calling 
-            let apiAddress = "https://theeasylearnacademy.com/shop/ws/category.php";
-            let option = {
-                'url' : apiAddress,
-                'method' : 'get',
-                'responseType':'json'
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        // We always use useEffect hook in function component to get data from server using api calling 
+        let apiAddress = "https://theeasylearnacademy.com/shop/ws/category.php";
+        let option = {
+            'url': apiAddress,
+            'method': 'get',
+            'responseType': 'json'
+        };
+
+        // Calling api 
+        axios(option).then((response) => {
+            // response.data property has actual response received from server
+            console.log(response.data);
+            /*
+            [   
+            0 {"error":"no"},
+            1 {"total":6},
+            2 {"id":"1","title":"laptop","photo":"laptop.jpg","islive":"1","isdeleted":"0"},
+            3{"id":"2","title":"mobile","photo":"mobile.jpg","islive":"1","isdeleted":"0"},
+            4{"id":"3","title":"book","photo":"books.jpg","islive":"1","isdeleted":"0"},
+            5{"id":"4","title":"Cookies & waffers","photo":"Cookies.jpg","islive":"1","isdeleted":"0"},
+            6{"id":"5","title":"Washing Powders","photo":"washing_powders.jpg","islive":"1","isdeleted":"0"},
+            7{"id":"6","title":"shampoo","photo":"shampoo.jpg","islive":"1","isdeleted":"0"}] 
+            */
+            let error = response.data[0]['error'];
+            if (error !='no')
+            {
+                alert(error);
             }
-            //calling api 
-            axios(option).then((response) => {
-                //response.data property has actual response received from server
-                console.log(response.data); 
-            })
-        })
-        return (<div className="wrapper">
+            else 
+            {
+                //no error 
+                let total = response.data[1]['total'];
+                if(total === 0)
+                {
+                    alert("category not found")
+                }
+                else 
+                {
+                    //there are few categories (total is not zero)
+                    //delete 2 object from beginning as it is not actual data
+                    response.data.splice(0,2);
+                    //store remaining  categories into state array
+                    setCategories(response.data);
+                }
+            }
+        }).catch((error) => {
+            alert("could not fetch categories, you are offline or server is not available");
+        });
+    });
+
+    return (
+        <div className="wrapper">
             <Sidebar />
             <div className="main">
                 <nav className="navbar navbar-expand navbar-light navbar-bg">
@@ -34,13 +75,11 @@ export default function Category() {
                                 <div className="card">
                                     <div className="card-header d-flex justify-content-between">
                                         <h4 className="card-title mb-0 text-dark">
-                                            <span className="text-bg-primary p-1">Existing Categories</span> - Category
-                                            management
+                                            <span className="text-bg-primary p-1">Existing Categories</span> - Category management
                                         </h4>
                                         <Link to="/add-category" className="btn btn-sm btn-primary">Add Category</Link>
                                     </div>
                                     <div className="card-body">
-                                        {/* create html table that display category id, title, photo, islive and button to edit and delete category */}
                                         <table className="table table-striped table-hover">
                                             <thead>
                                                 <tr>
@@ -52,20 +91,7 @@ export default function Category() {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Category 1</td>
-                                                    <td>
-                                                        <a data-fancybox="gallery" href="https://picsum.photos/id/1035/1200/800">
-                                                            <img src="http://picsum.photos/50" className="img-fluid rounded" alt="Category Image" />
-                                                        </a>
-                                                    </td>
-                                                    <td>Yes</td>
-                                                    <td>
-                                                        <Link to="/edit-category" className="btn btn-sm btn-primary">Edit</Link>
-                                                        <button className="btn btn-sm btn-danger">Delete</button>
-                                                    </td>
-                                                </tr>
+                                                
                                             </tbody>
                                         </table>
                                     </div>
@@ -77,5 +103,5 @@ export default function Category() {
                 <SiteFooter />  
             </div>
         </div>
-        );
+    );
 }
