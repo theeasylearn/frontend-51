@@ -1,9 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
+import { getBaseUrl, getImageBase } from './common';
+import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from './message';
 
 export default function Product() {
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		if (products.length == 0) {
+			let apiAddress = getBaseUrl() + "product.php";
+			let option = {
+				'url': apiAddress,
+				'method': 'get',
+				'responseType': 'json'
+			};
+
+			axios(option).then((response) => {
+				let error = response.data[0]['error'];
+				if (error != 'no') {
+					alert(error);
+				}
+				else {
+					let total = response.data[1]['total'];
+					if (total === 0) {
+						alert("product not found");
+					}
+					else {
+						showMessage();
+						response.data.splice(0, 2);
+						setProducts(response.data);
+					}
+				}
+			}).catch((error) => {
+				showError();
+			});
+		}
+	});
+
 	useEffect(() => {
 		if (window.Fancybox) {
 			window.Fancybox.bind("[data-fancybox]", {
@@ -18,11 +55,12 @@ export default function Product() {
 				}
 			});
 		}
-	}, []);
+	}, [products]);
 
 	return (
 		<div className="wrapper">
 			<Sidebar />
+			<ToastContainer />
 			<div className="main">
 				<nav className="navbar navbar-expand navbar-light navbar-bg">
 					<a className="sidebar-toggle js-sidebar-toggle">
@@ -61,26 +99,30 @@ export default function Product() {
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>10</td>
-													<td>Smartphone</td>
-													<td>$999</td>
-													<td>15</td>
-													<td>180g</td>
-													<td>6.1 inch</td>
-													<td>
-														<a data-fancybox="gallery" href="https://picsum.photos/id/1025/1200/800">
-															<img src="https://picsum.photos/50" className="img-fluid rounded" alt="Product" />
-														</a>
-													</td>
-													<td>Latest flagship phone</td>
-													<td>Yes</td>
-													<td>
-														<Link to="/edit-product" className="btn btn-sm btn-primary">Edit</Link>
-														<button className="btn btn-sm btn-danger">Delete</button>
-													</td>
-												</tr>
+												{products.map((item) => {
+													return (
+														<tr key={item.id}>
+															<td>{item.id}</td>
+															<td>{item.categoryid}</td>
+															<td>{item.title}</td>
+															<td>${parseFloat(item.price).toLocaleString()}</td>
+															<td>{item.stock}</td>
+															<td>{item.weight}</td>
+															<td>{item.size}</td>
+															<td>
+																<a data-fancybox="gallery" href={getImageBase() + "product/" + item.photo}>
+																	<img src={getImageBase() + "product/" + item.photo} className="img-fluid rounded" alt="Product" style={{ width: 50, height: 50, objectFit: "cover" }} />
+																</a>
+															</td>
+															<td>{item.detail}</td>
+															<td>{item.islive === "1" ? "Yes" : "No"}</td>
+															<td>
+																<Link to="/edit-product" className="btn btn-sm btn-primary">Edit</Link>
+																<button className="btn btn-sm btn-danger">Delete</button>
+															</td>
+														</tr>
+													);
+												})}
 											</tbody>
 										</table>
 									</div>

@@ -1,12 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
+import { getBaseUrl } from './common';
+import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from './message';
 
 export default function Dashboard() {
-		return (
-			<div className="wrapper">
-				<Sidebar />
-				<div className="main">
+	const [summary, setSummary] = useState({
+		categories: "-",
+		products: "-",
+		users: "-",
+		orders: "-",
+		daily: "-",
+		weekly: "-",
+		monthly: "-",
+		yearly: "-"
+	});
+	const [fetched, setFetched] = useState(false);
+
+	useEffect(() => {
+		if (fetched == false) {
+			let apiAddress = getBaseUrl() + "summery.php";
+			let option = {
+				'url': apiAddress,
+				'method': 'get',
+				'responseType': 'json'
+			};
+
+			axios(option).then((response) => {
+				let error = response.data[0]['error'];
+				if (error != 'no') {
+					alert(error);
+				}
+				else {
+					showMessage();
+					setSummary(response.data[1]);
+					setFetched(true);
+				}
+			}).catch((error) => {
+				showError();
+			});
+		}
+	});
+
+	return (
+		<div className="wrapper">
+			<Sidebar />
+			<ToastContainer />
+			<div className="main">
 					<nav className="navbar navbar-expand navbar-light navbar-bg">
 						<a className="sidebar-toggle js-sidebar-toggle">
 							<i className="hamburger align-self-center" />
@@ -34,7 +76,7 @@ export default function Dashboard() {
 													</div>
 												</div>
 											</div>
-											<h1 className="mt-1 mb-3">25</h1>
+											<h1 className="mt-1 mb-3">{summary.categories}</h1>
 											<div className="mb-0">
 												<span className="text-muted">Total active product categories</span>
 											</div>
@@ -55,7 +97,7 @@ export default function Dashboard() {
 													</div>
 												</div>
 											</div>
-											<h1 className="mt-1 mb-3">150</h1>
+											<h1 className="mt-1 mb-3">{summary.products}</h1>
 											<div className="mb-0">
 												<span className="text-muted">Total items in active inventory</span>
 											</div>
@@ -76,7 +118,7 @@ export default function Dashboard() {
 													</div>
 												</div>
 											</div>
-											<h1 className="mt-1 mb-3">138</h1>
+											<h1 className="mt-1 mb-3">{summary.users}</h1>
 											<div className="mb-0">
 												<span className="text-muted">Registered customers</span>
 											</div>
@@ -100,7 +142,7 @@ export default function Dashboard() {
 													</div>
 												</div>
 											</div>
-											<h1 className="mt-1 mb-3">12</h1>
+											<h1 className="mt-1 mb-3">{summary.daily}</h1>
 											<div className="mb-0">
 												<span className="badge badge-success-light">+8.2%</span>
 												<span className="text-muted">Since yesterday</span>
@@ -122,7 +164,7 @@ export default function Dashboard() {
 													</div>
 												</div>
 											</div>
-											<h1 className="mt-1 mb-3">85</h1>
+											<h1 className="mt-1 mb-3">{summary.weekly !== "-" ? parseFloat(summary.weekly).toLocaleString() : "-"}</h1>
 											<div className="mb-0">
 												<span className="badge badge-success-light">+12.5%</span>
 												<span className="text-muted">Since last week</span>
@@ -144,7 +186,7 @@ export default function Dashboard() {
 													</div>
 												</div>
 											</div>
-											<h1 className="mt-1 mb-3">340</h1>
+											<h1 className="mt-1 mb-3">{summary.monthly !== "-" ? parseFloat(summary.monthly).toLocaleString() : "-"}</h1>
 											<div className="mb-0">
 												<span className="badge badge-danger-light">-2.3%</span>
 												<span className="text-muted">Since last month</span>
@@ -166,7 +208,7 @@ export default function Dashboard() {
 													</div>
 												</div>
 											</div>
-											<h1 className="mt-1 mb-3">4,120</h1>
+											<h1 className="mt-1 mb-3">{summary.yearly !== "-" ? parseFloat(summary.yearly).toLocaleString() : "-"}</h1>
 											<div className="mb-0">
 												<span className="badge badge-success-light">+18.7%</span>
 												<span className="text-muted">Since last year</span>
@@ -181,6 +223,6 @@ export default function Dashboard() {
 
 					<SiteFooter />
 				</div>
-			</div>
+		</div>
 		);
 }

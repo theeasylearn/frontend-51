@@ -1,13 +1,68 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
+import { getBaseUrl } from './common';
+import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from './message';
 
 export default function Orders() {
-		return (
-			<div className="wrapper">
-				<Sidebar />
-				<div className="main">
+	const [orders, setOrders] = useState([]);
+
+	useEffect(() => {
+		if (orders.length == 0) {
+			let apiAddress = getBaseUrl() + "orders.php";
+			let option = {
+				'url': apiAddress,
+				'method': 'get',
+				'responseType': 'json'
+			};
+
+			axios(option).then((response) => {
+				let error = response.data[0]['error'];
+				if (error != 'no') {
+					alert(error);
+				}
+				else {
+					let total = response.data[1]['total'];
+					if (total === 0) {
+						alert("orders not found");
+					}
+					else {
+						showMessage();
+						response.data.splice(0, 2);
+						setOrders(response.data);
+					}
+				}
+			}).catch((error) => {
+				showError();
+			});
+		}
+	});
+
+	const getStatusBadge = (status) => {
+		switch (status) {
+			case "1":
+				return <span className="badge bg-warning">Pending</span>;
+			case "2":
+				return <span className="badge bg-info">Confirmed</span>;
+			case "3":
+				return <span className="badge bg-primary">Shipped</span>;
+			case "4":
+				return <span className="badge bg-success">Delivered</span>;
+			case "5":
+				return <span className="badge bg-danger">Cancelled</span>;
+			default:
+				return <span className="badge bg-secondary">Unknown</span>;
+		}
+	};
+
+	return (
+		<div className="wrapper">
+			<Sidebar />
+			<ToastContainer />
+			<div className="main">
 					<nav className="navbar navbar-expand navbar-light navbar-bg">
 						<a className="sidebar-toggle js-sidebar-toggle">
 							<i className="hamburger align-self-center" />
@@ -41,72 +96,24 @@ export default function Orders() {
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td>46</td>
-														<td>22-06-2026</td>
-														<td>ff</td>
-														<td>f, tr, dr - 222255</td>
-														<td>$125,000</td>
-														<td><span className="badge bg-warning">Pending</span></td>
-														<td>
-															<Link to="/order-detail?id=46" className="btn btn-sm btn-primary">
-																<i className="align-middle" data-feather="eye" /> View Detail
-															</Link>
-														</td>
-													</tr>
-													<tr>
-														<td>45</td>
-														<td>24-04-2026</td>
-														<td>dharm</td>
-														<td>anand, 1, anand - 364715</td>
-														<td>$125,100</td>
-														<td><span className="badge bg-warning">Pending</span></td>
-														<td>
-															<Link to="/order-detail?id=45" className="btn btn-sm btn-primary">
-																<i className="align-middle" data-feather="eye" /> View Detail
-															</Link>
-														</td>
-													</tr>
-													<tr>
-														<td>42</td>
-														<td>17-04-2026</td>
-														<td>ankit_patel</td>
-														<td>eva_surbhi, opp_akshwarwadi_temple, bhavnagar - 364001</td>
-														<td>$1,300</td>
-														<td><span className="badge bg-warning">Pending</span></td>
-														<td>
-															<Link to="/order-detail?id=42" className="btn btn-sm btn-primary">
-																<i className="align-middle" data-feather="eye" /> View Detail
-															</Link>
-														</td>
-													</tr>
-													<tr>
-														<td>21</td>
-														<td>31-12-2024</td>
-														<td>Darrel</td>
-														<td>58 Clarendon Extension, Fugiat id sit verita, Maxime neque non sim</td>
-														<td>$125,200</td>
-														<td><span className="badge bg-danger">Cancelled</span></td>
-														<td>
-															<Link to="/order-detail?id=21" className="btn btn-sm btn-primary">
-																<i className="align-middle" data-feather="eye" /> View Detail
-															</Link>
-														</td>
-													</tr>
-													<tr>
-														<td>8</td>
-														<td>01-10-2024</td>
-														<td>Ankit</td>
-														<td>105 eva surbhi, hill drive, bhavnagar</td>
-														<td>$1,767</td>
-														<td><span className="badge bg-primary">Shipped</span></td>
-														<td>
-															<Link to="/order-detail?id=8" className="btn btn-sm btn-primary">
-																<i className="align-middle" data-feather="eye" /> View Detail
-															</Link>
-														</td>
-													</tr>
-												</tbody>
+												{orders.map((item) => {
+													return (
+														<tr key={item.id}>
+															<td>{item.id}</td>
+															<td>{item.billdate}</td>
+															<td>{item.fullname}</td>
+															<td>{item.address1}, {item.address2}, {item.city} - {item.pincode}</td>
+															<td>${parseFloat(item.amount).toLocaleString()}</td>
+															<td>{getStatusBadge(item.orderstatus)}</td>
+															<td>
+																<Link to={`/order-detail?id=${item.id}`} className="btn btn-sm btn-primary">
+																	<i className="align-middle" data-feather="eye" /> View Detail
+																</Link>
+															</td>
+														</tr>
+													);
+												})}
+											</tbody>
 											</table>
 										</div>
 									</div>

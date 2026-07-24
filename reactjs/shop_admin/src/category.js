@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
+import React, { useEffect, useState } from 'react';
 import { getBaseUrl, getImageBase } from './common';
 import axios from 'axios';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
-
+import { showError, showMessage } from './message';
 export default function Category() {
     const [categories, setCategories] = useState([]);
-
     useEffect(() => {
         //run this code only one time 
         if (categories.length == 0) {
@@ -46,17 +45,8 @@ export default function Category() {
                         alert("category not found")
                     }
                     else {
-                        toast.success('Data Fatched', {
-                            position: "bottom-center",
-                            autoClose: false,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "colored",
-                            transition: Bounce,
-                        });
+                         //call function
+                        showMessage();
                         //there are few categories (total is not zero)
                         //delete 2 object from beginning as it is not actual data
                         response.data.splice(0, 2);
@@ -65,18 +55,7 @@ export default function Category() {
                     }
                 }
             }).catch((error) => {
-                // alert("could not fetch categories, you are offline or server is not available");
-                toast.error('could not fetch categories, you are offline or server is not available', {
-                    position: "bottom-center",
-                    autoClose: false,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                    transition: Bounce,
-                });
+                showError()
             });
         }
     });
