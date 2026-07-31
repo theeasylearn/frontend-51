@@ -10,3 +10,4 @@ export function getImageBase()
 {
     return getBase() + "images/";
 }
+//

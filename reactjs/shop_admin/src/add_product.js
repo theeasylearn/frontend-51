@@ -88,6 +88,7 @@ export default function AddProduct() {
         form.append("detail", detail);
         form.append("categoryid", category);
         form.append("islive", islive);
+        //
         let option = {
             url: apiAddress,
             method: 'post',

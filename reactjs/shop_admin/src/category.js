@@ -59,7 +59,7 @@ export default function Category() {
             });
         }
     });
-
+//
     return (
         <div className="wrapper">
             <Sidebar />
