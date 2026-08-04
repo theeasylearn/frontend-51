@@ -88,13 +88,13 @@ export default function AddProduct() {
         form.append("detail", detail);
         form.append("categoryid", category);
         form.append("islive", islive);
-        //
         let option = {
             url: apiAddress,
             method: 'post',
             responseType: 'json',
             data: form
         };
+        //API CALL
         axios(option).then((response) => {
             console.log(response.data);
             let error = response.data[0]['error'];
@@ -103,6 +103,7 @@ export default function AddProduct() {
             }
             else 
             {
+                //no error 
                 let success = response.data[1]['success'];
                 let message = response.data[2]['message'];
                 if(success === 'no')
@@ -114,7 +115,8 @@ export default function AddProduct() {
                     showMessage(message);
                     // delay script execution by 2 seconds 
                     setTimeout(() => {
-                       navigate("/product"); //change screen from add_product to product 
+                       //this code will run after 2000 millisecond 
+                        navigate("/product"); //change screen from add_product to product 
                     }, 2000);
                 }
             }
@@ -158,7 +160,8 @@ export default function AddProduct() {
                                             </div>
                                             <div className="col-md-4 col-sm-6 col-12">
                                                 <label htmlFor="title" className="form-label">Title</label>
-                                                <input type="text" className="form-control"
+                                                <input type="text" 
+                                                    className="form-control"
                                                     onChange={(e) => setTitle(e.target.value)}
                                                     id="title" name="title" required />
                                             </div>

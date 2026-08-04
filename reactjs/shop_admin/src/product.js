@@ -6,10 +6,9 @@ import { getBaseUrl, getImageBase } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
-
-export default function Product() {
+export default function Product() 
+{
 	const [products, setProducts] = useState([]);
-
 	useEffect(() => {
 		if (products.length == 0) {
 			let apiAddress = getBaseUrl() + "product.php";
@@ -117,8 +116,8 @@ export default function Product() {
 															<td>{item.detail}</td>
 															<td>{item.islive === "1" ? "Yes" : "No"}</td>
 															<td>
-																<Link to="/edit-product" className="btn btn-sm btn-primary">Edit</Link>
-																<button className="btn btn-sm btn-danger">Delete</button>
+	<Link to={"/edit-product/" + item.id} className="btn btn-sm btn-primary">Edit</Link>
+	<button className="btn btn-sm btn-danger">Delete</button>
 															</td>
 														</tr>
 													);
