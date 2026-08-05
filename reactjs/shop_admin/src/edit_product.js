@@ -6,144 +6,340 @@ import { getBaseUrl, getImageBase } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
+
 export default function EditProduct() {
-	//create variable to access queryString 
-	// http://localhost:3000/edit-product/11(queryString)
-	let { productid } = useParams();
+
+	const { productid } = useParams();
+
 	const [title, setTitle] = useState('');
 	const [price, setPrice] = useState('');
 	const [weight, setWeight] = useState('');
 	const [size, setSize] = useState('');
 	const [stock, setStock] = useState('');
-	const [islive, setIslive] = useState('');
-	const [photo, setPhoto] = useState('');
+	const [islive, setIslive] = useState(1);
+	const [photo, setPhoto] = useState(null);
+	const [oldPhoto, setOldPhoto] = useState('');
 	const [detail, setDetail] = useState('');
-	const [category, setCategory] = useState(''); //user selected category
+	const [category, setCategory] = useState('');
 	const [categories, setCategories] = useState([]);
-	useEffect(() => {
-		//api calling 
-		if (products.length == 0) {
-			let apiAddress = getBaseUrl() + "product.php?productid" + productid;
+	let fetchProduct = function () {
+		const apiAddress = getBaseUrl() + "product.php?productid=" + productid;
+
+		axios.get(apiAddress)
+			.then((response) => {
+
+				if (response.data[0].error !== "no") {
+					showError(response.data[0].error);
+					return;
+				}
+
+				if (response.data[1].total === 0) {
+					showError("Product not found");
+					return;
+				}
+
+				const product = response.data[2];
+
+				setTitle(product.title);
+				setPrice(product.price);
+				setWeight(product.weight);
+				setSize(product.size);
+				setStock(product.stock);
+				setCategory(product.categoryid);
+				setDetail(product.detail);
+				setIslive(Number(product.islive));
+				setOldPhoto(product.photo);
+
+			})
+			.catch(() => {
+				showError("Unable to fetch product.");
+			});
+
+	}
+
+	let fetchCategories = function () {
+		if (categories.length == 0) {
+			let apiAddress = getBaseUrl() + "category.php";
 			let option = {
 				'url': apiAddress,
 				'method': 'get',
 				'responseType': 'json'
 			};
 
+			// Calling api 
 			axios(option).then((response) => {
+				// response.data property has actual response received from server
+				console.log(response.data);
+				/*
+				[   
+				0 {"error":"no"},
+				1 {"total":6},
+				2 {"id":"1","title":"laptop","photo":"laptop.jpg","islive":"1","isdeleted":"0"},
+				3{"id":"2","title":"mobile","photo":"mobile.jpg","islive":"1","isdeleted":"0"},
+				4{"id":"3","title":"book","photo":"books.jpg","islive":"1","isdeleted":"0"},
+				5{"id":"4","title":"Cookies & waffers","photo":"Cookies.jpg","islive":"1","isdeleted":"0"},
+				6{"id":"5","title":"Washing Powders","photo":"washing_powders.jpg","islive":"1","isdeleted":"0"},
+				7{"id":"6","title":"shampoo","photo":"shampoo.jpg","islive":"1","isdeleted":"0"}] 
+				*/
 				let error = response.data[0]['error'];
 				if (error != 'no') {
 					alert(error);
 				}
 				else {
+					//no error 
 					let total = response.data[1]['total'];
 					if (total === 0) {
-						alert("product not found");
+						alert("category not found")
 					}
 					else {
+						//call function
 						showMessage();
+						//there are few categories (total is not zero)
+						//delete 2 object from beginning as it is not actual data
 						response.data.splice(0, 2);
-						//setProducts(response.data);
+						//store remaining  categories into state array
+						setCategories(response.data);
 					}
 				}
 			}).catch((error) => {
-				showError();
+				showError()
 			});
 		}
-	});
+	}
+	useEffect(() => {
+		fetchProduct();
+		fetchCategories();
+	}, [productid]);
+
 	return (
-		<div className="wrapper">
-			<Sidebar />
-			<div className="main">
-				<nav className="navbar navbar-expand navbar-light navbar-bg">
-					<a className="sidebar-toggle js-sidebar-toggle">
-						<i className="hamburger align-self-center" />
-					</a>
-				</nav>
+		<>
+			<ToastContainer />
 
-				<main className="content">
-					<div className="container-fluid p-0">
-						<h1 className="h3 mb-3" />
+			<div className="wrapper">
 
-						<div className="row">
-							<div className="col-12">
-								<div className="card">
-									<div className="card-header">
-										<h4 className="card-title mb-0 text-dark">
-											<span className="text-bg-primary p-1">Edit product</span> - Product management
-										</h4>
-									</div>
-									<div className="card-body">
-										<div className="row">
-											<div className="col-md-9">
-												<form method="post">
-													<div className="row g-3">
-														<div className="col-md-4 col-sm-6 col-12">
-															<label htmlFor="category_id" className="form-label">Category ID</label>
-															<input type="number" className="form-control" id="category_id" name="category_id" defaultValue="10" required />
-														</div>
-														<div className="col-md-4 col-sm-6 col-12">
-															<label htmlFor="title" className="form-label">Edit Title</label>
-															<input type="text" className="form-control" id="title" name="title" defaultValue="Smartphone" required />
-														</div>
-														<div className="col-md-4 col-sm-6 col-12">
-															<label htmlFor="price" className="form-label">Price</label>
-															<input type="number" step="0.01" className="form-control" id="price" name="price" defaultValue="999" required />
-														</div>
+				<Sidebar />
 
-														<div className="col-md-4 col-sm-6 col-12">
-															<label htmlFor="stock" className="form-label">Stock</label>
-															<input type="number" className="form-control" id="stock" name="stock" defaultValue="15" required />
-														</div>
-														<div className="col-md-4 col-sm-6 col-12">
-															<label htmlFor="weight" className="form-label">Weight</label>
-															<input type="number" step="0.01" className="form-control" id="weight" name="weight" defaultValue="180" required />
-														</div>
-														<div className="col-md-4 col-sm-6 col-12">
-															<label htmlFor="size" className="form-label">Size</label>
-															<input type="text" className="form-control" id="size" name="size" defaultValue="6.1 inch" required />
-														</div>
+				<div className="main">
 
-														<div className="col-md-4 col-sm-6 col-12">
-															<label htmlFor="photo" className="form-label">Change Photo</label>
-															<input type="file" className="form-control" id="photo" name="photo" required />
-														</div>
-														<div className="col-md-4 col-sm-6 col-12">
-															<label htmlFor="detail" className="form-label">Detail</label>
-															<textarea className="form-control" id="detail" name="detail" rows={4} required defaultValue="Latest flagship phone" />
-														</div>
-														<div className="col-md-4 col-sm-6 col-12">
-															<label className="form-label">Is Live?</label>
-															<div className="form-check">
-																<input className="form-check-input" type="radio" name="is_live" id="yes" defaultValue="1" defaultChecked required />
-																<label className="form-check-label" htmlFor="yes">Yes</label>
-															</div>
-															<div className="form-check">
-																<input className="form-check-input" type="radio" name="is_live" id="no" defaultValue="0" required />
-																<label className="form-check-label" htmlFor="no">No</label>
-															</div>
-														</div>
-													</div>
-													<div className="mt-4">
-														<button type="submit" className="btn btn-primary">Save changes</button>
-														<button type="reset" className="btn btn-secondary">Clear all</button>
-													</div>
-												</form>
-											</div>
-											<div className="col-md-3">
-												<h4 className="mb-3">Existing Photo</h4>
-												<img src="https://picsum.photos/200" className="img-fluid rounded" alt="Product" />
-											</div>
-										</div>
-									</div>
+					<nav className="navbar navbar-expand navbar-light navbar-bg">
+						<a className="sidebar-toggle js-sidebar-toggle">
+							<i className="hamburger align-self-center"></i>
+						</a>
+					</nav>
+
+					<main className="content">
+
+						<div className="container-fluid p-0">
+
+							<div className="card">
+
+								<div className="card-header">
+									<h4 className="card-title">
+										<span className="badge bg-primary">
+											Edit Product
+										</span>
+									</h4>
 								</div>
-							</div>
-						</div>
-					</div>
-				</main>
 
-				<SiteFooter />
+								<div className="card-body">
+
+									<div className="row">
+
+										<div className="col-md-9">
+
+											<form>
+
+												<div className="row g-3">
+
+													<div className="col-md-4">
+														<label htmlFor="category_id" className="form-label">Category ID</label>
+														<select className="form-select" id="category" name="category" required
+															onChange={(e) => setCategory(e.target.value)} >
+															<option value="">Select category</option>
+															{categories.map((item) => {
+																if (item.id === category) {
+																	return (<option value={item.id} selected>{item.title}</option>)
+																}
+																else {
+																	return (<option value={item.id}>{item.title}</option>)
+																}
+															})}
+														</select>
+
+													</div>
+
+													<div className="col-md-4">
+														<label>Title</label>
+														<input
+															type="text"
+															className="form-control"
+															value={title}
+															onChange={(e) => setTitle(e.target.value)}
+														/>
+													</div>
+
+													<div className="col-md-4">
+														<label>Price</label>
+														<input
+															type="number"
+															className="form-control"
+															value={price}
+															onChange={(e) => setPrice(e.target.value)}
+														/>
+													</div>
+
+													<div className="col-md-4">
+														<label>Stock</label>
+														<input
+															type="number"
+															className="form-control"
+															value={stock}
+															onChange={(e) => setStock(e.target.value)}
+														/>
+													</div>
+
+													<div className="col-md-4">
+														<label>Weight</label>
+														<input
+															type="number"
+															className="form-control"
+															value={weight}
+															onChange={(e) => setWeight(e.target.value)}
+														/>
+													</div>
+
+													<div className="col-md-4">
+														<label>Size</label>
+														<input
+															type="text"
+															className="form-control"
+															value={size}
+															onChange={(e) => setSize(e.target.value)}
+														/>
+													</div>
+
+													<div className="col-md-6">
+														<label>Change Photo</label>
+														<input
+															type="file"
+															className="form-control"
+															onChange={(e) => setPhoto(e.target.files[0])}
+														/>
+													</div>
+
+													<div className="col-md-6">
+														<label>Detail</label>
+														<textarea
+															rows="4"
+															className="form-control"
+															value={detail}
+															onChange={(e) => setDetail(e.target.value)}
+														></textarea>
+													</div>
+
+													<div className="col-md-6">
+
+														<label className="form-label">
+															Is Live ?
+														</label>
+
+														<div className="form-check">
+
+															<input
+																className="form-check-input"
+																type="radio"
+																id="yes"
+																name="islive"
+																value="1"
+																checked={islive === 1}
+																onChange={() => setIslive(1)}
+															/>
+
+															<label
+																className="form-check-label"
+																htmlFor="yes"
+															>
+																Yes
+															</label>
+
+														</div>
+
+														<div className="form-check">
+
+															<input
+																className="form-check-input"
+																type="radio"
+																id="no"
+																name="islive"
+																value="0"
+																checked={islive === 0}
+																onChange={() => setIslive(0)}
+															/>
+
+															<label
+																className="form-check-label"
+																htmlFor="no"
+															>
+																No
+															</label>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<div className="mt-4">
+
+													<button
+														className="btn btn-primary me-2"
+														type="submit"
+													>
+														Save Changes
+													</button>
+
+													<button
+														className="btn btn-secondary"
+														type="reset"
+													>
+														Reset
+													</button>
+
+												</div>
+
+											</form>
+
+										</div>
+
+										<div className="col-md-3">
+
+											<h5>Existing Photo</h5>
+
+											<img
+												src={getImageBase() + "product/" + oldPhoto}
+												alt="Product"
+												className="img-fluid rounded border"
+											/>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</main>
+
+					<SiteFooter />
+
+				</div>
+
 			</div>
-		</div>
+
+		</>
 	);
+
 }
