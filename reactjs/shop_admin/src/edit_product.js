@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
-import { useParams } from 'react-router-dom';
+import { data, useParams, useNavigate } from 'react-router-dom';
 import { getBaseUrl, getImageBase } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
@@ -10,7 +10,7 @@ import { showError, showMessage } from './message';
 export default function EditProduct() {
 
 	const { productid } = useParams();
-
+	let navigate = useNavigate(); 
 	const [title, setTitle] = useState('');
 	const [price, setPrice] = useState('');
 	const [weight, setWeight] = useState('');
@@ -111,6 +111,58 @@ export default function EditProduct() {
 		fetchCategories();
 	}, [productid]);
 
+
+	let updateProduct = function(e) {
+		console.log(title,price,stock,weight,size,detail,islive,photo,category);
+		//api call 
+		let apiAddress = getBaseUrl() + "update_product.php";
+		let form = new FormData();
+		form.append("name",title);
+		form.append("photo",photo);
+		form.append("price",price);
+		form.append("stock",stock);
+		form.append("detail",detail);
+		form.append("productid",productid);
+		form.append("categoryid",category);
+		form.append("islive",islive);
+		let option = {
+			url:apiAddress,
+			method:'post',
+			responseType:'json',
+			data:form
+		};
+		// api call 
+		axios(option).then((response) => {
+			console.log(response.data);
+			let error = response.data[0]['error'];
+			if(error !== 'no')
+			{
+				//there is error
+				showError(error);
+			}
+			else 
+			{
+				//no error 
+				let success = response.data[1]['success'];
+				let message = response.data[2]['message'];
+				if(success === 'no')
+					showError(message);
+				else 
+				{
+					//success yes
+					showMessage(message);
+					setTimeout(() => {
+						//send user on another route 
+						navigate("/product");
+					},2000);
+				}
+			}
+		}).catch((error) => {
+			showError();
+		});
+		e.preventDefault();
+
+	}
 	return (
 		<>
 			<ToastContainer />
@@ -147,7 +199,7 @@ export default function EditProduct() {
 
 										<div className="col-md-9">
 
-											<form>
+											<form method='post' onSubmit={updateProduct}>
 
 												<div className="row g-3">
 

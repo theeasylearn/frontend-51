@@ -6,8 +6,7 @@ import { getBaseUrl, getImageBase } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
-export default function Product() 
-{
+export default function Product() {
 	const [products, setProducts] = useState([]);
 	useEffect(() => {
 		if (products.length == 0) {
@@ -56,6 +55,11 @@ export default function Product()
 		}
 	}, [products]);
 
+	let deleteProduct = (productid) => {
+		alert(productid);
+		// api call 
+		
+	}
 	return (
 		<div className="wrapper">
 			<Sidebar />
@@ -116,8 +120,8 @@ export default function Product()
 															<td>{item.detail}</td>
 															<td>{item.islive === "1" ? "Yes" : "No"}</td>
 															<td>
-	<Link to={"/edit-product/" + item.id} className="btn btn-sm btn-primary">Edit</Link>
-	<button className="btn btn-sm btn-danger">Delete</button>
+																<Link to={"/edit-product/" + item.id} className="btn btn-sm btn-primary">Edit</Link>
+																<button onClick={()=> deleteProduct(item.id)} className="btn btn-sm btn-danger">Delete</button>
 															</td>
 														</tr>
 													);
