@@ -56,9 +56,36 @@ export default function Product() {
 	}, [products]);
 
 	let deleteProduct = (productid) => {
-		alert(productid);
 		// api call 
-		
+		let apiAddress = getBaseUrl() + "delete_product.php?id=" + productid;
+		//alert(apiAddress);
+		let option = {
+			url:apiAddress,
+			method:'get',
+			responseType:'json'
+		}
+		axios(option).then((response) =>{
+			console.log(response.data);
+			let error = response.data[0]['error'];
+			if(error !== 'no')
+			{
+				showError(error);
+			}
+			else 
+			{
+				
+				//remove product in state array
+				let temp = products.filter((item) => {
+					if(item.id !== productid)
+						return item		
+				});
+				//store filtered data into temp 
+				setProducts(temp);
+				showMessage(response.data[1]['message']);
+			}
+		}).catch((error) => {
+			showError();
+		});
 	}
 	return (
 		<div className="wrapper">

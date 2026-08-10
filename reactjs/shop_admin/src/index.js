@@ -30,7 +30,7 @@ function MyRouter() {
 				<Route path="/edit-product/:productid" element={<EditProduct />} />
 				<Route path="/forgot-password" element={<ForgotPassword />} />
 				<Route path="/login" element={<Login />} />
-				<Route path="/order-detail" element={<OrderDetail />} />
+				<Route path={"/order-detail/:orderid"} element={<OrderDetail />} />
 				<Route path="/orders" element={<Orders />} />
 				<Route path="/product" element={<Product />} />
 				<Route path="/send-email" element={<SendEmail />} />
