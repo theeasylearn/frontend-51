@@ -106,7 +106,8 @@ export default function Orders() {
 															<td>${parseFloat(item.amount).toLocaleString()}</td>
 															<td>{getStatusBadge(item.orderstatus)}</td>
 															<td>
-																<Link to={`/order-detail?id=${item.id}`} className="btn btn-sm btn-primary">
+																<Link 
+																to={`/order-detail/` + item.id} className="btn btn-sm btn-primary">
 																	<i className="align-middle" data-feather="eye" /> View Detail
 																</Link>
 															</td>
