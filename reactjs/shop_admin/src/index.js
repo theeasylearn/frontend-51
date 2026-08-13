@@ -16,28 +16,30 @@ import Product from './product';
 import SendEmail from './send_email';
 import Template from './template';
 import Users from './users';
-//
+import { CookiesProvider } from 'react-cookie';
 function MyRouter() {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Dashboard />} />
-				<Route path="/dashboard" element={<Dashboard />} />
-				<Route path="/add-category" element={<AddCategory />} />
-				<Route path="/add-product" element={<AddProduct />} />
-				<Route path="/category" element={<Category />} />
-				<Route path="/edit-category" element={<EditCategory />} />
-				<Route path="/edit-product/:productid" element={<EditProduct />} />
-				<Route path="/forgot-password" element={<ForgotPassword />} />
-				<Route path="/login" element={<Login />} />
-				<Route path={"/order-detail/:orderid"} element={<OrderDetail />} />
-				<Route path="/orders" element={<Orders />} />
-				<Route path="/product" element={<Product />} />
-				<Route path="/send-email" element={<SendEmail />} />
-				<Route path="/template" element={<Template />} />
-				<Route path="/users" element={<Users />} />
-			</Routes>
-		</BrowserRouter>
+		<CookiesProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Login />} />
+					<Route path="/dashboard" element={<Dashboard />} />
+					<Route path="/add-category" element={<AddCategory />} />
+					<Route path="/add-product" element={<AddProduct />} />
+					<Route path="/category" element={<Category />} />
+					<Route path="/edit-category" element={<EditCategory />} />
+					<Route path="/edit-product/:productid" element={<EditProduct />} />
+					<Route path="/forgot-password" element={<ForgotPassword />} />
+					<Route path="/login" element={<Login />} />
+					<Route path={"/order-detail/:orderid"} element={<OrderDetail />} />
+					<Route path="/orders" element={<Orders />} />
+					<Route path="/product" element={<Product />} />
+					<Route path="/send-email" element={<SendEmail />} />
+					<Route path="/template" element={<Template />} />
+					<Route path="/users" element={<Users />} />
+				</Routes>
+			</BrowserRouter>
+		</CookiesProvider>
 	);
 }
 

@@ -1,33 +1,49 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getBaseUrl } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
-import { useState, useEffect } from 'react';
-
+import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 export default function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	let doLogin = () => {
-
+	let navigate = useNavigate();
+	const [cookies, setCookie, removeCookie] = useCookies(['theeasylearn']);
+	let doLogin = (e) => {
+		e.preventDefault();
 		let apiAddress = getBaseUrl() + "admin_login.php";
+		let form = new FormData();
+		form.append("email", email);
+		form.append("password", password);
+		console.log(form);
 		let option = {
 			url: apiAddress,
 			method: "post",
 			responseType: "json",
-			data: { email, password }
+			data: form
 		};
 
 		axios(option).then((response) => {
 			console.log(response.data);
 			let error = response.data[0]['error'];
-			if (error != "no") {
+			if (error !== "no") {
 				showError(error);
 			}
 			else {
 				let success = response.data[1]['success'];
-				showMessage("Login successfully");
+				if (success === 'no') {
+					showError(response.data[2]['message']);
+				}
+				else {
+					showMessage(response.data[2]['message']);
+					setCookie("userid",response.data[3]['id']);
+					console.log(cookies['userid'])
+					setTimeout(() => {
+						navigate('/dashboard');
+					}, 2000);
+				}
 			}
 		}).catch((error) => {
 			showError();
