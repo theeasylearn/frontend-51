@@ -16,7 +16,8 @@ import ChangePassword from './changepassword';
 import ForgotPassword from './forgotpassword';
 import Profile from './profile';
 import Order from './order';
-
+import AddProduct from './addproduct';
+import EditProduct from './editproduct';
 function MyRouter() {
     return (
         <Router>
@@ -25,7 +26,7 @@ function MyRouter() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/shop" element={<Shop />} />
-                <Route path="/product" element={<Product />} />
+                <Route path="/product/:categoryid" element={<Product />} />
                 <Route path="/product-detail" element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />
