@@ -5,8 +5,7 @@ import { getBaseUrl } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
-import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
+import useVerifyLogin from './verify-login';
 export default function Dashboard() {
 	const [summary, setSummary] = useState({
 		categories: "-",
@@ -19,13 +18,8 @@ export default function Dashboard() {
 		yearly: "-"
 	});
 	const [fetched, setFetched] = useState(false);
-	const [cookies, setCookie, removeCookie] = useCookies(['theeasylearn']);
-	let navigate = useNavigate();
+	useVerifyLogin();
 	useEffect(() => {
-		//check whether userid cookies exists or not. if not redirect to login
-		if(cookies['userid']==undefined){
-			navigate('/login');
-		}
 		if (fetched == false) {
 			let apiAddress = getBaseUrl() + "summery.php";
 			let option = {

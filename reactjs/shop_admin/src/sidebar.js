@@ -38,6 +38,11 @@ export default function Sidebar() {
                                 <i className="align-middle" data-feather="shopping-cart" /> <span className="align-middle">Orders</span>
                             </Link>
                         </li>
+                        <li className="sidebar-item">
+                            <Link className="sidebar-link" to="/logout">
+                                <i className="align-middle" data-feather="shopping-cart" /> <span className="align-middle">Logout</span>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </nav>

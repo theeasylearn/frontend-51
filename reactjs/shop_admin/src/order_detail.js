@@ -6,8 +6,9 @@ import { getBaseUrl } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
-
+import useVerifyLogin from './verify-login';
 export default function OrderDetail() {
+	useVerifyLogin();	
 	const { orderid } = useParams();
 	const [order, setOrder] = useState(null);
 	const [items, setItems] = useState([]);

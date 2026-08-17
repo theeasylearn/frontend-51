@@ -1,7 +1,9 @@
 import React from 'react';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
+import useVerifyLogin from './verify-login';
 export default function AddCategory() {
+  useVerifyLogin();
   return (<div className="wrapper">
       <Sidebar />
       <div className="main">

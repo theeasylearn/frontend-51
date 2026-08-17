@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import Sidebar from './sidebar';
 import SiteFooter from './site_footer';
-
+import useVerifyLogin from './verify-login';
 export default function EditCategory() {
+	useVerifyLogin();
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			if (localStorage.getItem('popState') !== 'shown' && window.notyf) {

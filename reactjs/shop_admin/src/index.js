@@ -16,7 +16,9 @@ import Product from './product';
 import SendEmail from './send_email';
 import Template from './template';
 import Users from './users';
+import Logout from './logout';
 import { CookiesProvider } from 'react-cookie';
+
 function MyRouter() {
 	return (
 		<CookiesProvider>
@@ -37,6 +39,7 @@ function MyRouter() {
 					<Route path="/send-email" element={<SendEmail />} />
 					<Route path="/template" element={<Template />} />
 					<Route path="/users" element={<Users />} />
+					<Route path="/logout" element={<Logout />} />
 				</Routes>
 			</BrowserRouter>
 		</CookiesProvider>

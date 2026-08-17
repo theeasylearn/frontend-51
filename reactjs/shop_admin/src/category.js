@@ -6,7 +6,9 @@ import { getBaseUrl, getImageBase } from './common';
 import axios from 'axios';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import { showError, showMessage } from './message';
+import useVerifyLogin from './verify-login';
 export default function Category() {
+    useVerifyLogin();
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         //run this code only one time 

@@ -6,8 +6,10 @@ import { getBaseUrl, getImageBase } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
+import useVerifyLogin from './verify-login';
 export default function Product() {
 	const [products, setProducts] = useState([]);
+	useVerifyLogin();
 	useEffect(() => {
 		if (products.length == 0) {
 			let apiAddress = getBaseUrl() + "product.php";

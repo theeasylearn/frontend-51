@@ -6,7 +6,7 @@ import axios from 'axios';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import { showError, showMessage } from './message';
 import { useNavigate } from 'react-router-dom';
-
+import useVerifyLogin from './verify-login';
 export default function AddProduct() {
     const [categories, setCategories] = useState([]);
     // create state variable for each and every input 
@@ -21,6 +21,7 @@ export default function AddProduct() {
     var [stock, setStock] = useState('');
     // create hook of useNavigate
     let navigate = useNavigate(); 
+    useVerifyLogin();
     useEffect(() => {
         //run this code only one time 
         if (categories.length == 0) {

@@ -6,10 +6,10 @@ import { getBaseUrl } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
-
+import useVerifyLogin from './verify-login';
 export default function Users() {
 	const [users, setUsers] = useState([]);
-
+	useVerifyLogin();
 	useEffect(() => {
 		if (users.length == 0) {
 			let apiAddress = getBaseUrl() + "users.php";

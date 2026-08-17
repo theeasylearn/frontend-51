@@ -6,10 +6,10 @@ import { getBaseUrl } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
-
+import useVerifyLogin from './verify-login';
 export default function Orders() {
+	useVerifyLogin();
 	const [orders, setOrders] = useState([]);
-
 	useEffect(() => {
 		if (orders.length == 0) {
 			let apiAddress = getBaseUrl() + "orders.php";

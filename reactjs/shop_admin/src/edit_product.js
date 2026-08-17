@@ -6,9 +6,9 @@ import { getBaseUrl, getImageBase } from './common';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from './message';
-
+import useVerifyLogin from './verify-login';
 export default function EditProduct() {
-
+	useVerifyLogin();
 	const { productid } = useParams();
 	let navigate = useNavigate(); 
 	const [title, setTitle] = useState('');
