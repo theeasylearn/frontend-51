@@ -18,28 +18,34 @@ import Profile from './profile';
 import Order from './order';
 import AddProduct from './addproduct';
 import EditProduct from './editproduct';
+import { CookiesProvider } from 'react-cookie';
+import Logout from './logout';
 function MyRouter() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/shop" element={<Shop />} />
-                <Route path="/product/:categoryid" element={<Product />} />
-                <Route path="/product-detail" element={<ProductDetail />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/changepassword" element={<ChangePassword />} />
-                <Route path="/forgotpassword" element={<ForgotPassword />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/order" element={<Order />} />
-                <Route path="/addproduct" element={<AddProduct />} />
-                <Route path="/editproduct" element={<EditProduct />} />
-            </Routes>
-        </Router>
+        <CookiesProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/shop" element={<Shop />} />
+                    <Route path="/product" element={<Product />} />
+                    <Route path="/product/:categoryid" element={<Product />} />
+                    <Route path="/product-detail/:productid" element={<ProductDetail />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/changepassword" element={<ChangePassword />} />
+                    <Route path="/forgotpassword" element={<ForgotPassword />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/order" element={<Order />} />
+                    <Route path="/addproduct" element={<AddProduct />} />
+                    <Route path="/editproduct" element={<EditProduct />} />
+                    <Route path="/logout" element={<Logout />} />
+                </Routes>
+            </Router>
+        </CookiesProvider>
     );
 }
 

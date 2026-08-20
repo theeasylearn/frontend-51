@@ -143,7 +143,7 @@ export default class Profile extends React.Component {
                                                     className={`list-group-item list-group-item-action border-0 text-start py-3 px-4 ${this.state.activeTab === 'password' ? 'active' : ''}`}>
                                                     <i className="fa fa-lock me-3"></i> Change Password
                                                 </button>
-                                                <Link to="/login" className="list-group-item list-group-item-action border-0 text-start py-3 px-4 text-danger">
+                                                <Link to="/logout" className="list-group-item list-group-item-action border-0 text-start py-3 px-4 text-danger">
                                                     <i className="fa fa-sign-out me-3"></i> Logout
                                                 </Link>
                                             </div>

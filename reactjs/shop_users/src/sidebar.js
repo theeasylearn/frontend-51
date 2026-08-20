@@ -1,8 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import withHooks from './hoc';
 
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
+    handleLogout = (e) => {
+        e.preventDefault();
+        this.props.removeCookie('id', { path: '/' });
+        this.props.navigate('/login');
+    }
+
     render() {
+        const isLoggedIn = !!this.props.cookies.id;
+
         return (
             <header id="header" className="header">
                 <div className="header-center-section d-none d-lg-block">
@@ -111,36 +120,50 @@ export default class Sidebar extends React.Component {
                                             <span className="list-text">Products</span>
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link to="/register">
-                                            <span className="list-text">Register</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/login">
-                                            <span className="list-text">Login</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/cart">
-                                            <span className="list-text">Cart</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/checkout">
-                                            <span className="list-text">Checkout</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/changepassword">
-                                            <span className="list-text">Change password</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/forgotpassword">
-                                            <span className="list-text">Forgot password</span>
-                                        </Link>
-                                    </li>
+                                    {!isLoggedIn && (
+                                        <>
+                                            <li>
+                                                <Link to="/register">
+                                                    <span className="list-text">Register</span>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/login">
+                                                    <span className="list-text">Login</span>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/forgotpassword">
+                                                    <span className="list-text">Forgot password</span>
+                                                </Link>
+                                            </li>
+                                        </>
+                                    )}
+                                    {isLoggedIn && (
+                                        <>
+                                            <li>
+                                                <Link to="/cart">
+                                                    <span className="list-text">Cart</span>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/changepassword">
+                                                    <span className="list-text">Change password</span>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/checkout">
+                                                    <span className="list-text">Checkout</span>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/logout">
+                                                    <span className="list-text">Logout</span>
+                                                </Link>
+                                            </li>
+                                        </>
+                                    )}
+
                                     <li>
                                         <Link to="/profile">
                                             <span className="list-text">Profile</span>
@@ -160,3 +183,5 @@ export default class Sidebar extends React.Component {
         );
     }
 }
+
+export default withHooks(Sidebar);
