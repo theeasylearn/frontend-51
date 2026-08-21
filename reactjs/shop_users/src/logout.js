@@ -3,9 +3,10 @@ import withHooks from './hoc';
 
 class Logout extends React.Component {
     componentDidMount() {
-        this.props.removeCookie('id');
         this.props.removeCookie('id', { path: '/' });
-        this.props.navigate('/');
+        setTimeout(() => {
+            this.props.navigate('/');
+        }, 100);
     }
 
     render() {

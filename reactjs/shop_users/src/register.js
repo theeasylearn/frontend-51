@@ -57,7 +57,9 @@ class Register extends React.Component {
             if (error !== 'no') {
                 showError(error);
             } else {
-                showMessage(response.data[1]['message']);
+                let msgObj = response.data.find(item => item.message !== undefined);
+                let message = msgObj ? msgObj.message : "Registered successfully";
+                showMessage(message);
                 setTimeout(() => {
                     this.props.navigate('/login');
                 }, 2000);

@@ -49,9 +49,13 @@ class Login extends React.Component {
             if (error !== 'no') {
                 showError(error);
             } else {
-                let userId = response.data[2]['id'];
+                let idObj = response.data.find(item => item.id !== undefined);
+                let msgObj = response.data.find(item => item.message !== undefined);
+                let userId = idObj ? idObj.id : undefined;
+                let message = msgObj ? msgObj.message : "Login successful";
+
                 this.props.setCookie('id', userId, { path: '/' });
-                showMessage(response.data[1]['message']);
+                showMessage(message);
                 setTimeout(() => {
                     this.props.navigate('/');
                 }, 2000);

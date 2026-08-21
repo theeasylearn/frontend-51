@@ -4,7 +4,7 @@ import Sidebar from './sidebar';
 import Footer from './footer';
 import withHooks from './hoc';
 import axios from 'axios';
-import { showError } from './message';
+import { showError, showMessage } from './message';
 import { getBaseUrl, getImageBase } from './common';
 import { ToastContainer } from 'react-toastify';
 class Product extends React.Component {
@@ -14,6 +14,34 @@ class Product extends React.Component {
             product: [],
             total: null
         };
+    }
+    addToCart = (productid) => {
+        let userid = this.props.cookies.id;
+        if (!userid) {
+            showError("Please log in first to add products to cart.");
+            setTimeout(() => {
+                this.props.navigate('/login');
+            }, 2000);
+            return;
+        }
+
+        let apiAddress = getBaseUrl() + "add_to_cart.php?productid=" + productid + "&usersid=" + userid;
+        console.log(apiAddress);
+        let option = {
+            url: apiAddress,
+            method: "GET",
+            responseType: "json"
+        };
+        axios(option).then((response) => {
+            let error = response.data[0]['error'];
+            if (error !== 'no') {
+                showError(error);
+            } else {
+                showMessage(response.data[1]['message'] || "Product added to cart successfully!");
+            }
+        }).catch((error) => {
+            showError("Failed to add product to cart.");
+        });
     }
     componentDidMount() {
         let categoryid = this.props.params.categoryid;
@@ -102,7 +130,7 @@ class Product extends React.Component {
                                                 </div>
                                             </div>
                                             <div className="product-cart-btn">
-                                                <Link to="/cart" className="product-btn text-decoration-none">Add To Cart</Link>
+                                                <button onClick={() => this.addToCart(item.id)} className="product-btn border-0 w-100 text-decoration-none" style={{ cursor: 'pointer' }}>Add To Cart</button>
                                             </div>
                                         </div>
                                     </div>)
