@@ -66,12 +66,22 @@ class Cart extends React.Component {
             responseType: "json"
         };
         axios(option).then((response) => {
+            console.log(response.data);
             let error = response.data[0]['error'];
             if (error !== 'no') {
                 showError(error);
             } else {
-                showMessage(response.data[1]['message'] || "Item removed from cart.");
-                this.fetchCart();
+                showMessage(response.data[1]['message']);
+                //remove delete items from cartItem
+                const updatedCart = this.state.cartItems.filter(item => item.cartid !== cartid);
+                this.setState({ cartItems: updatedCart });
+                //update cart total
+                let subtotal = 0;
+                updatedCart.forEach(item => {
+                    subtotal += parseFloat(item.price) * parseInt(item.quantity || 1);
+                });
+                this.setState({ total: subtotal });
+            
             }
         }).catch((error) => {
             showError("Failed to remove item from cart.");
@@ -160,7 +170,7 @@ class Cart extends React.Component {
                                                 </div>
                                             </td>
                                             <td className="table-wrapper text-center">
-                                                <button onClick={() => this.deleteFromCart(item.id)} className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button>
+                                                <button onClick={() => this.deleteFromCart(item.cartid)} className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                     ))}

@@ -108,12 +108,17 @@ class Checkout extends React.Component {
             if (error !== 'no') {
                 showError(error);
             } else {
-                let msgObj = response.data.find(item => item.message !== undefined);
-                let message = msgObj ? msgObj.message : "Order placed successfully!";
-                showMessage(message);
-                setTimeout(() => {
-                    this.props.navigate('/');
-                }, 2000);
+                let success = response.data[1]['success'];
+                let message = response.data[2]['message'];
+                if (success === 'no') {
+                    showError(message);
+                }
+                else{
+                    showMessage(message);
+                    setTimeout(() => {
+                        this.props.navigate('/');
+                    }, 2000);
+                }
             }
         }).catch((error) => {
             showError("Failed to place order.");
